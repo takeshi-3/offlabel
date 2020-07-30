@@ -12,7 +12,7 @@ const Home = () => {
         const entries = await client.getEntries();
         if (entries.items) return entries.items;
         console.log(`Error getting Entries for ${contentType.name}.`)
-    }
+    };
 
     const [posts, setPosts] = useState([]);
 
@@ -20,6 +20,7 @@ const Home = () => {
         const getPosts = async () => {
             const allPosts = await fetchEntries();
             setPosts([...allPosts]);
+            console.log(allPosts[0]);
         };
         getPosts()
     }, []);
@@ -31,11 +32,12 @@ const Home = () => {
             </Head>
             {posts.length > 0
                 ? posts.map(p => (
-                    <Post 
+                    <Post
+                        key={p.fields.title}
                         title={p.fields.title}
                         date={p.fields.date}
-                        thumbnail={p.fields.thumbnail}
-                        content={p.fields.content}
+                        thumbnail={p.fields.thumbnail.fields.file.url}
+                        content={p.fields.body}
                     />
                 ))
             : null}
