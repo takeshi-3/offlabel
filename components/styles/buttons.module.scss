@@ -1,0 +1,23 @@
+@import '../../styles/colors.scss';
+
+.roundBtn {
+    display: block;
+    margin: 0 auto;
+    padding: 16px 64px;
+    border: 1px solid $main_color;
+    border-radius: 30px;
+    background-color: white;
+    color: $main_color;
+    font-size: 1.8rem;
+    transition: all .3s ease;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $main_color;
+        color: white;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

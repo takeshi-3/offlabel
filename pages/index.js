@@ -5,10 +5,10 @@ import {useEffect, useState} from 'react';
 import Link from 'next/link';
 import News from '../components/news';
 import PageTitle from '../components/pageTitle';
-import Member from '../components/member';
 import Event from '../components/event';
 import Library from '../components/library';
 import Banner from '../components/banner';
+import {RoundButton} from '../components/buttons';
 
 // custom components
 import Layout from '../components/layout';
@@ -102,7 +102,7 @@ const Home = ({news, library, events, members}) => {
 
             <section className={styles.news}>
                 <div className="mw">
-                    <div className={styles.news_title}><PageTitle title="NEWS" /></div>
+                    <PageTitle>NEWS</PageTitle>
                     <p className={styles.news_exp}>
                         OFF LABELメンバーは各自のフィールドで研究を続けながらも、
                         常にアウトリーチ活動としてOFF LABELの活動にも取り組んでいます。
@@ -113,30 +113,33 @@ const Home = ({news, library, events, members}) => {
                                 <News key={item.fields.title} fields={item.fields} />
                             )) : null}
                     </div>
+                    <RoundButton>More</RoundButton>
                 </div>
             </section>
 
             <section className={styles.events}>
                 <div className="mw">
-                    <div className={styles.events_title}><PageTitle title="EVENTS" /></div>
+                    <PageTitle>EVENTS</PageTitle>
                     <div className={styles.events_cont}>
                         {events.items.length > 0
                             ? events.items.map(event => (
                             <Event fields={event.fields} />
                         )) : null}
                     </div>
+                    <RoundButton>More</RoundButton>
                 </div>
             </section>
 
             <section className={styles.members}>
                 <div className="mw">
-                    <div className={styles.members_title}><PageTitle title="Members" /></div>
+                    <PageTitle>MEMBERS</PageTitle>
                     <div className={styles.members_cont}>
                         {members.items.length > 0 
                             ? members.items.map(member => (
                                 <div className={styles.members_thumb}><img src={member.fields.thumbnail.fields.file.url} /></div>
                             )) : null}
                     </div>
+                    <RoundButton>More</RoundButton>
                 </div>
             </section>
 

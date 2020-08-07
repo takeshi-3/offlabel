@@ -168,11 +168,6 @@
     padding: 64px 0;
     background-color: $main_color_light;
 
-    &_title {
-        display: flex;
-        justify-content: space-around;
-    }
-
     &_exp {
         max-width: 570px;
         margin: 0 auto;
@@ -184,6 +179,7 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        padding-bottom: 32px;
     }
 }
 
@@ -191,13 +187,8 @@
     padding: 64px 0;
     background-color: $base_color;
 
-    &_title {
-        display: flex;
-        justify-content: space-around;
-    }
-
     &_cont {
-        padding-top: 64px;
+        padding: 64px 0 16px;
     }
 }
 
@@ -205,16 +196,11 @@
     padding: 64px 0;
     background-color: white;
 
-    &_title {
-        display: flex;
-        justify-content: space-around;
-        padding-bottom: 64px;
-    }
-
     &_cont {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        padding: 64px 0;
     }
 
     &_thumb {
