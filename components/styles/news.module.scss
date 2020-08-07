@@ -1,0 +1,41 @@
+.post {
+    width: 30%;
+    margin: 32px 0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.thumb {
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+
+    &_img {
+        transition: all .4s ease-in-out;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        .thumb_img {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.body {
+    padding: 16px 24px;
+    background-color: white;
+    border-radius: 0 0 5px 5px;
+}
+
+.title {
+    padding-bottom: 8px;
+}
+
+.content {
+    padding-bottom: 8px;
+}
+
+.date {
+
+}

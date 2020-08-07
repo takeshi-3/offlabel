@@ -1,0 +1,61 @@
+@import '../../styles/colors.scss';
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.thumb {
+    position: relative;
+    width: 45%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+
+    &_tag {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 8px 16px;
+        border: 1px solid $font_color;
+        background-color: white;
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 55%;
+    padding: 16px 0;
+
+    .header {
+        z-index: 5;
+        width: 93%;
+        margin-left: -7%;
+        padding: 16px 24px;
+        border: 2px solid $main_color;
+        background-color: white;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+
+        &_title {
+            color: $main_color;
+            text-align: left;
+        }
+
+        &_name {
+            color: $main_color;
+            text-align: right;
+        }
+    }
+
+    .overview {
+        width: 93%;
+        margin: 0 0 0 auto;
+        padding: 16px 24px;
+        border: 2px solid $font_color;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+
+        &_title {
+            padding-bottom: 8px;
+        }
+    }
+}

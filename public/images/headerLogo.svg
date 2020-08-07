@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="164" height="43.49" viewBox="0 0 164 43.49">
+  <g id="Group_60" data-name="Group 60" transform="translate(-40 -23)">
+    <text id="OFF_LABEL" data-name="OFF LABEL" transform="translate(101 52)" fill="#4a4a4a" font-size="20" font-family="Quicksand-Medium, Quicksand" font-weight="500"><tspan x="0" y="0">OFF LABEL</tspan></text>
+    <g id="horizontal" transform="translate(25.74 0.94)">
+      <rect id="Rectangle_11" data-name="Rectangle 11" width="42.959" height="41.49" transform="translate(15.26 23.06)" fill="#fff" stroke="#2e2d53" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Path_2" data-name="Path 2" d="M64.411,57.31V71.725H45.35c4.384,0,7.942-5.274,7.942-11.8h0c6.163,0,11.119-1.167,11.119-2.613" transform="translate(-6.192 -7.048)" fill="#2e2d53"/>
+    </g>
+  </g>
+</svg>

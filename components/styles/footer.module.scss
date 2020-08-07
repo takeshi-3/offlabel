@@ -1,0 +1,18 @@
+@import '../../styles/colors.scss';
+
+.wrapper {
+    width: 100%;
+    padding: 24px;
+    background-color: $main_color_light;
+}
+
+.logo {
+    width: 95px;
+    height: auto;
+    margin: 0 auto 16px;
+}
+
+.name {
+    text-align: center;
+    color: white;
+}
