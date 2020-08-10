@@ -81,7 +81,7 @@ const Home = ({news, library, events, members}) => {
                     <div className={styles.oshare_links}>
                         <Link href="/library"><div className={`${styles.oshare_link} ${styles.oshare_link_library}`}>
                             <div className={styles.oshare_link_back}>
-                                <h3>Research・Human Library</h3>
+                                <h3>Human / Research Library</h3>
                                 <p>どうやって研究を始めるの？研究者ってどんな人たち？ その疑問に答えられるようなコンテンツを揃えています。</p>
                             </div>
                         </div></Link>
@@ -105,7 +105,7 @@ const Home = ({news, library, events, members}) => {
 
             <section className={styles.news}>
                 <div className="mw">
-                    <PageTitle>NEWS</PageTitle>
+                    <PageTitle>News</PageTitle>
                     <p className={styles.news_exp}>
                         OFF LABELメンバーは各自のフィールドで研究を続けながらも、
                         常にアウトリーチ活動としてOFF LABELの活動にも取り組んでいます。
@@ -122,7 +122,7 @@ const Home = ({news, library, events, members}) => {
 
             <section className={styles.events}>
                 <div className="mw">
-                    <PageTitle>EVENTS</PageTitle>
+                    <PageTitle>Event</PageTitle>
                     <div className={styles.events_cont}>
                         {events.items.length > 0
                             ? events.items.map(event => (
@@ -135,7 +135,7 @@ const Home = ({news, library, events, members}) => {
 
             <section className={styles.members}>
                 <div className="mw">
-                    <PageTitle>MEMBERS</PageTitle>
+                    <PageTitle>Member</PageTitle>
                     <div className={styles.members_cont}>
                         {members.items.length > 0 
                             ? members.items.map(member => (

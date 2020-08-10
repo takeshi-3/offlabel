@@ -3,6 +3,7 @@
     margin: 32px 0;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transition: all .3s ease;
 
     &:hover {
         cursor: pointer;
@@ -19,7 +20,7 @@
     overflow: hidden;
 
     &_img {
-        transition: all .4s ease-in-out;
+        transition: all .3s ease;
     }
 }
 

@@ -3,6 +3,7 @@
 .wrapper {
     display: flex;
     justify-content: space-between;
+    margin: 104px 0;
 }
 
 .thumb {
@@ -53,6 +54,7 @@
         padding: 16px 24px;
         border: 2px solid $font_color;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+        background-color: white;
 
         &_title {
             padding-bottom: 8px;

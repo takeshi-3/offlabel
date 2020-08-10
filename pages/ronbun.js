@@ -12,9 +12,25 @@ import {RoundButton} from '../components/buttons';
 // styles
 import styles from '../styles/ronbun.module.scss';
 
-const Ronbun = () => {
+
+// fetch data from contentful
+const client = require('contentful').createClient({
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
+});
+
+export const getStaticProps = async () => {
+    const ronbun = await client.getEntries({content_type: 'ronbun'});
+    return {
+        props: {
+            ronbun
+        }
+    }
+};
+
+const Ronbun = ({ronbun}) => {
     return (
-        <LayoutNormal title="Ronbun">
+        <LayoutNormal title="100人論文">
             <AcademyHero image={"/images/ronbunHero.JPG"} />
             <div className={styles.title}><PageTitle>100人論文</PageTitle></div>
 
@@ -26,6 +42,13 @@ const Ronbun = () => {
                     こちらの企画は自身研究のアウトリーチを行いたいと考えいている方は誰でも参加が可能なため、参加希望の場合は以下のリンクにて質問に回答の上、ご参加いただけます。
                 </p>
                 <a target="_blank" href="https://docs.google.com/forms/d/1-tKy9hwjGsAY7c-bznciMl2opXbWi1iPyDz8K6HZg_E"><RoundButton>100人論文に参加する</RoundButton></a>
+            </section>
+
+            <section className={styles.cont}>
+                {ronbun.items.length > 0 ?
+                    ronbun.items.map(item =>
+                    <img src={item.fields.ronbun.fields.file.url} key={item.sys.id} />
+                ) : null}
             </section>
 
         </LayoutNormal>
