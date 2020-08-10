@@ -9,6 +9,7 @@ import EventItem from '../components/eventItem';
 import LibraryItem from '../components/libraryItem';
 import Banner from '../components/banner';
 import {RoundButton} from '../components/buttons';
+import {Catch} from '../components/parts.js';
 
 // custom components
 import {LayoutNormal} from '../components/layout';
@@ -56,9 +57,7 @@ const Home = ({news, library, events, members}) => {
 
             <section className={styles.about}>
                 <div className="mw">
-                    <h2 className={styles.about_catch}>
-                        「学問・研究」をよりカジュアルに、<br />日常をよりよく生きるための糧に
-                    </h2>
+                    <Catch>「学問・研究」をよりカジュアルに、<br />日常をよりよく生きるための糧に</Catch>
                     <p className={styles.about_exp}>
                         OFF LABELは学問や研究の力を通じて、<br />
                         人々や組織、国や地域に貼られた、<br />

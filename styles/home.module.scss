@@ -29,18 +29,6 @@
     padding: 104px 30px;
     background-color: $base_color;
 
-    &_catch {
-        width: 100%;
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 24px 40px;
-        text-align: center;
-        border: 1px solid $font_color;
-        background-color: white;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
-        line-height: 2.3em;
-    }
-
     &_exp {
         margin: 0 auto;
         padding: 64px 0 40px;
