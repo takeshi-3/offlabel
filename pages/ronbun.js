@@ -4,13 +4,13 @@ import {useEffect, useState} from 'react';
 // next components
 
 // custom components
-import Layout from '../components/layout';
+import {LayoutNormal} from '../components/layout';
 
 const Ronbun = () => {
     return (
-        <Layout title="Ronbun">
+        <LayoutNormal title="Ronbun">
             <h1>Ronbun Page</h1>
-        </Layout>
+        </LayoutNormal>
     )
 };
 

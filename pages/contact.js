@@ -4,13 +4,13 @@ import {useEffect, useState} from 'react';
 // next components
 
 // custom components
-import Layout from '../components/layout';
+import {LayoutTitleBase} from '../components/layout';
 
 const Contact = () => {
     return (
-        <Layout title="Join">
+        <LayoutTitleBase title="Join">
             <h1>Join Page</h1>
-        </Layout>
+        </LayoutTitleBase>
     )
 };
 
