@@ -6,12 +6,12 @@ import {useEffect, useState} from 'react';
 // custom components
 import Layout from '../components/layout';
 
-const Speaker = () => {
+const Contact = () => {
     return (
-        <Layout title="Speaker">
-            <h1>Speaker Page</h1>
+        <Layout title="Join">
+            <h1>Join Page</h1>
         </Layout>
     )
 };
 
-export default Speaker;
+export default Contact;

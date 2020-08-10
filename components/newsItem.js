@@ -1,6 +1,6 @@
-import styles from './styles/news.module.scss';
+import styles from './styles/newsItem.module.scss';
 
-const News = ({fields}) => {
+const NewsItem = ({fields}) => {
     return (
         <div className={styles.post}>
             <div className={styles.thumb}><img src={fields.thumbnail.fields.file.url} className={styles.thumb_img} /></div>
@@ -13,4 +13,4 @@ const News = ({fields}) => {
     );
 };
 
-export default News;
+export default NewsItem;

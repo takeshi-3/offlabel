@@ -1,6 +1,6 @@
-import styles from './styles/library.module.scss';
+import styles from './styles/libraryItem.module.scss';
 
-const Library = ({fields}) => {
+const LibraryItem = ({fields}) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.thumb}>
@@ -21,4 +21,4 @@ const Library = ({fields}) => {
     );
 };
 
-export default Library;
+export default LibraryItem;

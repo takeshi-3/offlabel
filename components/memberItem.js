@@ -1,6 +1,6 @@
-import styles from './styles/member.module.scss';
+import styles from './styles/memberItem.module.scss';
 
-const Member = ({name, role, major}) => {
+const MemberItem = ({name, role, major}) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.thumb}><img src="/images/memberSample.png" /></div>
@@ -15,4 +15,4 @@ const Member = ({name, role, major}) => {
     );
 };
 
-export default Member;
+export default MemberItem;

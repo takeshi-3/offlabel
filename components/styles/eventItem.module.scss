@@ -3,6 +3,7 @@
 .wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     // height: 280px;
     margin-bottom: 64px;
     padding: 16px 24px;
@@ -13,9 +14,6 @@
 }
 
 .thumb {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
     width: 28%;
     height: 100%;
     overflow: hidden;

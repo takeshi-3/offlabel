@@ -3,18 +3,21 @@ import {useEffect, useState} from 'react';
 
 // next components
 import Link from 'next/link';
-import News from '../components/news';
+import NewsItem from '../components/newsItem';
 import PageTitle from '../components/pageTitle';
-import Event from '../components/event';
-import Library from '../components/library';
+import EventItem from '../components/eventItem';
+import LibraryItem from '../components/libraryItem';
 import Banner from '../components/banner';
 import {RoundButton} from '../components/buttons';
 
 // custom components
-import Layout from '../components/layout';
+import {LayoutNormal} from '../components/layout';
 
 // style
 import styles from '../styles/home.module.scss';
+
+// framer-motion
+import {motion} from 'framer-motion';
 
 const client = require('contentful').createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -41,8 +44,9 @@ const Home = ({news, library, events, members}) => {
         console.log(members);
     }, []);
     return (
-        <Layout title="Home">
-            <section className={styles.hero}>
+        <LayoutNormal title="Home">
+            <section 
+                className={styles.hero}>
                 <img src="/images/hero.png" />
                 <div className={styles.hero_path}>
                     <p className={styles.hero_path_txt}>OFF LABELとは？</p>
@@ -96,7 +100,7 @@ const Home = ({news, library, events, members}) => {
                     </div>
                     {library.items.length > 0
                     ? library.items.map(lib =>
-                        <Library fields={lib.fields} key={lib.fields.title} />) : null}
+                        <LibraryItem fields={lib.fields} key={lib.sys.id} />) : null}
                 </div>
             </section>
 
@@ -110,7 +114,7 @@ const Home = ({news, library, events, members}) => {
                     <div className={styles.news_cont}>
                         {news.items.length > 0
                             ? news.items.map(item => (
-                                <News key={item.fields.title} fields={item.fields} />
+                                <NewsItem key={item.sys.id} fields={item.fields} />
                             )) : null}
                     </div>
                     <RoundButton>More</RoundButton>
@@ -123,7 +127,7 @@ const Home = ({news, library, events, members}) => {
                     <div className={styles.events_cont}>
                         {events.items.length > 0
                             ? events.items.map(event => (
-                            <Event fields={event.fields} />
+                            <EventItem fields={event.fields} key={event.sys.id} />
                         )) : null}
                     </div>
                     <RoundButton>More</RoundButton>
@@ -136,7 +140,7 @@ const Home = ({news, library, events, members}) => {
                     <div className={styles.members_cont}>
                         {members.items.length > 0 
                             ? members.items.map(member => (
-                                <div className={styles.members_thumb}><img src={member.fields.thumbnail.fields.file.url} /></div>
+                                <div className={styles.members_thumb} key={member.sys.id}><img src={member.fields.thumbnail.fields.file.url} /></div>
                             )) : null}
                     </div>
                     <RoundButton>More</RoundButton>
@@ -151,7 +155,7 @@ const Home = ({news, library, events, members}) => {
                     />
                 </div>
             </section>
-        </Layout>
+        </LayoutNormal>
     )
 };
 

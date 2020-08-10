@@ -6,37 +6,38 @@ import {useEffect, useState} from 'react';
 // custom components
 import {LayoutTitleBase} from '../components/layout';
 import PageTitle from '../components/pageTitle';
-import EventItem from '../components/eventItem';
+import MemberItem from '../components/memberItem';
 
 // styles
-import styles from '../styles/event.module.scss';
+import styles from '../styles/member.module.scss';
 
+// fetch data from contentful
 const client = require('contentful').createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 });
 
 export const getStaticProps = async () => {
-    const event = await client.getEntries({content_type: 'event'});
+    const member = await client.getEntries({content_type: 'member'});
     return {
         props: {
-            event
+            member
         }
     }
 };
 
-const Event = ({event}) => {
+const Member = ({member}) => {
     return (
-        <LayoutTitleBase title="Event">
-            <main className={`mw ${styles.event}`}>
-                <PageTitle>EVENTS</PageTitle>
+        <LayoutTitleBase title="Member">
+            <main className={`mw ${styles.member}`}>
+                <PageTitle>MEMBER</PageTitle>
                 <p className={styles.exp}>
-                    OFF LABEL 主催のイベント情報です！
+                    OFF LABELのメンバー情報です。
                 </p>
                 <div className={styles.cont}>
-                    {event.items.length > 0 ?
-                        event.items.map(item => 
-                        <EventItem key={item.sys.id} fields={item.fields} /> 
+                    {member.items.length > 0 ?
+                        member.items.map(item =>
+                        <MemberItem key={item.sys.id} fields={item.fields} />
                     ) : null}
                 </div>
             </main>
@@ -44,4 +45,4 @@ const Event = ({event}) => {
     )
 };
 
-export default Event;
+export default Member;

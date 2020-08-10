@@ -1,6 +1,6 @@
-import styles from './styles/event.module.scss';
+import styles from './styles/eventItem.module.scss';
 
-const Event = ({fields}) => {
+const EventItem = ({fields}) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.thumb}><img src={fields.thumbnail.fields.file.url} /></div>
@@ -13,4 +13,4 @@ const Event = ({fields}) => {
     );
 };
 
-export default Event;
+export default EventItem;

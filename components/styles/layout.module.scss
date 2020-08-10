@@ -1,5 +1,14 @@
-.wrapper {
-    padding-top: 60px;
+@import '../../styles/colors.scss';
+
+.normal {
+    // padding-top: 60px;
+    background-color: $base_color;
+}
+
+.titleBase {
+    background-color: $base_color;
+    padding: 144px 20px 0;
+
 }
 
 .page {

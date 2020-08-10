@@ -15,7 +15,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 
 const Header = ({title}) => {
-    const menuItems = ['About', 'News', 'Events', 'Members', 'Contact', 'O!SHARE Academy'];
+    const menuItems = ['About', 'News', 'Event', 'Member', 'Contact', 'O!SHARE Academy'];
 
     useEffect(() => {
         (function(d) {
@@ -36,7 +36,7 @@ const Header = ({title}) => {
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
             </Head>
             <div className={styles.wrapper}>
-                <Link href="/"><img className={styles.logo} src="/images/headerLogo.svg" /></Link>
+                <Link href="/"><a><img className={styles.logo} src="/images/headerLogo.svg" /></a></Link>
                 <div className={styles.menu}>
                     {menuItems.map(menu => 
                         <Link href={`/${menu.toLowerCase()}`}><a>{menu}</a></Link>
