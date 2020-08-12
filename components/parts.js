@@ -15,3 +15,44 @@ export const AcademyHero = ({image}) => {
         </div>
     );
 };
+
+export const BlogOverview = ({children}) => {
+    return (
+        <div className={styles.overview}>
+            <h4 className={styles.overview_title}>Overview</h4>
+            <p className={styles.overview_content}>{children}</p>
+        </div>
+    );
+};
+
+export const BlogSecTitle = ({children}) => {
+    return (
+        <div className={styles.secTitle}>
+            {children}
+        </div>
+    );
+};
+
+export const BlogKeySentence = ({children}) => {
+    return (
+        <div className={styles.keySentence}>
+            {children}
+        </div>
+    );
+};
+
+export const BlogFeelSentence = ({children}) => {
+    return (
+        <div className={styles.feelSentence}>
+            <div className={styles.feelSentence_border}></div>
+            <p className={styles.feelSentence_txt}>{children}</p>
+        </div>
+    );
+};
+
+export const BlogWriter = ({children}) => {
+    return (
+
+        <p className={styles.writer}>Writer : {children}</p>
+    );
+};

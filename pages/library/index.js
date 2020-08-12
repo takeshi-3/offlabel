@@ -4,14 +4,14 @@ import {useEffect, useState} from 'react';
 // next components
 
 // custom components
-import {LayoutNormal} from '../components/layout';
-import {AcademyHero} from '../components/parts';
-import PageTitle from '../components/pageTitle';
-import {RoundTag, RoundButton} from '../components/buttons';
-import LibraryItem from '../components/libraryItem';
+import {LayoutNormal} from '../../components/layout';
+import {AcademyHero} from '../../components/parts';
+import PageTitle from '../../components/pageTitle';
+import {RoundTag, RoundButton} from '../../components/buttons';
+import LibraryItem from '../../components/libraryItem';
 
 // styles
-import styles from '../styles/library.module.scss';
+import styles from '../../styles/library.module.scss';
 
 
 // fetch data from contentful
@@ -58,7 +58,7 @@ const Library = ({library, tags}) => {
                 <section className={styles.cont}>
                     {library.items.length > 0 ?
                         library.items.map(item => 
-                        <LibraryItem key={item.sys.id} fields={item.fields} />
+                        <LibraryItem key={item.sys.id} fields={item.fields} id={item.sys.id} />
                     ) : null}
                     <RoundButton>More</RoundButton>
                 </section>

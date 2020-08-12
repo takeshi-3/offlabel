@@ -65,10 +65,10 @@ const Header = ({title}) => {
                         <MenuGroup parent={menu.name} list={menu.sub} />
                         : <Link href={`/${menu.link}`}><a>{menu.name}</a></Link>
                     ))}
-                    <a href="https://www.facebook.com/OFFLABELJP/" target="_blank"><FacebookIcon></FacebookIcon></a>
-                    <a href="https://twitter.com/offlabelgakkai" target="_blank"><TwitterIcon></TwitterIcon></a>
-                    <a href="https://www.instagram.com/offlabelgakkai/" target="_blank"><InstagramIcon></InstagramIcon></a>
-                    <a href="https://www.youtube.com/channel/UChKC9yt9aLqkTjIiXPHeHAg/featured" target="_blank"><YouTubeIcon></YouTubeIcon></a>
+                    <a href="https://www.facebook.com/OFFLABELJP/" target="_blank"><FacebookIcon fontSize="large"></FacebookIcon></a>
+                    <a href="https://twitter.com/offlabelgakkai" target="_blank"><TwitterIcon fontSize="large"></TwitterIcon></a>
+                    <a href="https://www.instagram.com/offlabelgakkai/" target="_blank"><InstagramIcon fontSize="large"></InstagramIcon></a>
+                    <a href="https://www.youtube.com/channel/UChKC9yt9aLqkTjIiXPHeHAg/featured" target="_blank"><YouTubeIcon fontSize="large"></YouTubeIcon></a>
                 </div>
             </div>
         </>

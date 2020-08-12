@@ -99,7 +99,7 @@ const Home = ({news, library, events, members}) => {
                     </div>
                     {library.items.length > 0
                     ? library.items.map(lib =>
-                        <LibraryItem fields={lib.fields} key={lib.sys.id} />) : null}
+                        <LibraryItem fields={lib.fields} key={lib.sys.id} id={lib.sys.id} />) : null}
                 </div>
             </section>
 
@@ -113,7 +113,7 @@ const Home = ({news, library, events, members}) => {
                     <div className={styles.news_cont}>
                         {news.items.length > 0
                             ? news.items.map(item => (
-                                <NewsItem key={item.sys.id} fields={item.fields} />
+                                <NewsItem key={item.sys.id} fields={item.fields} id={item.sys.id} />
                             )) : null}
                     </div>
                     <RoundButton>More</RoundButton>

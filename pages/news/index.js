@@ -4,12 +4,12 @@ import {useEffect, useState} from 'react';
 // next components
 
 // custom components
-import {LayoutTitleBase} from '../components/layout';
-import PageTitle from '../components/pageTitle';
-import NewsItem from '../components/newsItem';
+import {LayoutTitleBase} from '../../components/layout';
+import PageTitle from '../../components/pageTitle';
+import NewsItem from '../../components/newsItem';
 
 // styles
-import styles from '../styles/news.module.scss';
+import styles from '../../styles/news.module.scss';
 
 // fetch data from contentful
 const client = require('contentful').createClient({
@@ -19,6 +19,7 @@ const client = require('contentful').createClient({
 
 export const getStaticProps = async () => {
     const news = await client.getEntries({content_type: 'news'});
+    console.log(news);
     return {
         props: {
             news
@@ -42,7 +43,7 @@ const News = ({news}) => {
                 <div className={styles.cont}>
                     {news.items.length > 0 ?
                         news.items.map(item => 
-                            <NewsItem key={item.sys.id} fields={item.fields} />
+                            <NewsItem key={item.sys.id} fields={item.fields} id={item.sys.id} />
                     ) : null}
                 </div>
             </main>

@@ -36,3 +36,53 @@
         line-height: 2;
     }
 }
+
+.overview {
+    width: 100%;
+    margin: 0 0 0 auto;
+    padding: 16px 24px;
+    border: 2px solid $font_color;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+    background-color: white;
+
+    &_title {
+        padding-bottom: 8px;
+    }
+}
+
+.secTitle {
+    margin: 104px 0 40px;
+    padding-left: 16px;
+    border-left: 15px solid $font_color;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.keySentence {
+    margin: 40px 0;
+    padding: 8px 24px;
+    background-color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.feelSentence {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 64px;
+
+    &_txt {
+        padding-left: 16px;
+    }
+
+    &_border {
+        flex-grow: 1;
+        border-bottom: 1px solid $font_color;
+    }
+}
+
+.writer {
+    text-align: right;
+}

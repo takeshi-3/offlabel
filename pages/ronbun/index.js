@@ -4,13 +4,13 @@ import {useEffect, useState} from 'react';
 // next components
 
 // custom components
-import {LayoutNormal} from '../components/layout';
-import {AcademyHero} from '../components/parts';
-import PageTitle from '../components/pageTitle';
-import {RoundButton} from '../components/buttons';
+import {LayoutNormal} from '../../components/layout';
+import {AcademyHero} from '../../components/parts';
+import PageTitle from '../../components/pageTitle';
+import {RoundButton} from '../../components/buttons';
 
 // styles
-import styles from '../styles/ronbun.module.scss';
+import styles from '../../styles/ronbun.module.scss';
 
 
 // fetch data from contentful
