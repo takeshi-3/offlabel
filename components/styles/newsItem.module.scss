@@ -16,10 +16,22 @@
 }
 
 .thumb {
+    position: relative;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
+    width: 100%;
+
+    &:before {
+        content: '';
+        display: block;
+        padding-top: 56.25%;
+    }
 
     &_img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
         transition: all .3s ease;
     }
 }
