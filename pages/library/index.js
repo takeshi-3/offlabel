@@ -60,8 +60,9 @@ const Library = ({library, tags}) => {
                         library.items.map(item => 
                         <LibraryItem key={item.sys.id} fields={item.fields} id={item.sys.id} />
                     ) : null}
-                    <RoundButton>More</RoundButton>
                 </section>
+
+                <RoundButton>More</RoundButton>
             </main>
         </LayoutNormal>
     )

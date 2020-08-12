@@ -1,3 +1,5 @@
+@import '../../styles/functions.scss';
+
 .post {
     width: 30%;
     margin: 32px 0;
@@ -5,6 +7,14 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
     transition: all .3s ease;
     background-color: white;
+
+    @include mq_max(md) {
+        width: 48%;
+    }
+
+    @include mq_max(sm) {
+        width: 100%;
+    }
 
     &:hover {
         cursor: pointer;
