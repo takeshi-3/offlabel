@@ -1,6 +1,6 @@
 @import "../../styles/colors.scss";
 
-.wrapper {
+.header {
     z-index: 100;
     display: flex;
     align-items: center;
@@ -12,30 +12,30 @@
     height: 60px;
     padding: 0 24px;
     background-color: rgba(255, 255, 255, 0.5);
-}
 
-.logo {
-    width: 150px;
-    height: auto;
-}
+    &_logo {
+        width: 150px;
+        height: auto;
+    }
 
-.menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 800px;
-    height: 100%;
-
-    a {
+    &_menu {
         display: flex;
+        justify-content: space-between;
         align-items: center;
+        max-width: 800px;
         height: 100%;
-        padding: 0 16px;
-        transition: all .3s ease;
-
-        &:hover {
-            background-color: $main_color;
-            color: white;
+    
+        a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0 16px;
+            transition: all .3s ease;
+    
+            &:hover {
+                background-color: $main_color;
+                color: white;
+            }
         }
     }
 }

@@ -39,6 +39,8 @@ const Header = ({title}) => {
             {link: 'ronbun', name: '100人論文'}
         ]}];
 
+    const [mobile, setMobile] = useState(false);
+
     useEffect(() => {
         (function(d) {
             var config = {
@@ -57,19 +59,27 @@ const Header = ({title}) => {
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
             </Head>
-            <div className={styles.wrapper}>
-                <Link href="/"><a><img className={styles.logo} src="/images/headerLogo.svg" /></a></Link>
-                <div className={styles.menu}>
-                    {menuItems.map(menu => (
-                        Array.isArray(menu.sub) ?
-                        <MenuGroup parent={menu.name} list={menu.sub} />
-                        : <Link href={`/${menu.link}`}><a>{menu.name}</a></Link>
-                    ))}
-                    <a href="https://www.facebook.com/OFFLABELJP/" target="_blank"><FacebookIcon fontSize="large"></FacebookIcon></a>
-                    <a href="https://twitter.com/offlabelgakkai" target="_blank"><TwitterIcon fontSize="large"></TwitterIcon></a>
-                    <a href="https://www.instagram.com/offlabelgakkai/" target="_blank"><InstagramIcon fontSize="large"></InstagramIcon></a>
-                    <a href="https://www.youtube.com/channel/UChKC9yt9aLqkTjIiXPHeHAg/featured" target="_blank"><YouTubeIcon fontSize="large"></YouTubeIcon></a>
-                </div>
+
+            <div className={styles.header}>
+                <Link href="/"><a><img className={styles.header_logo} src="/images/headerLogo.svg" /></a></Link>
+
+                {mobile ? 
+                    <div className={styles.headerSP}>
+
+                    </div>
+                :
+                    <div className={styles.header_menu}>
+                        {menuItems.map(menu => (
+                            Array.isArray(menu.sub) ?
+                            <MenuGroup parent={menu.name} list={menu.sub} />
+                            : <Link href={`/${menu.link}`}><a>{menu.name}</a></Link>
+                        ))}
+                        <a href="https://www.facebook.com/OFFLABELJP/" target="_blank"><FacebookIcon fontSize="large"></FacebookIcon></a>
+                        <a href="https://twitter.com/offlabelgakkai" target="_blank"><TwitterIcon fontSize="large"></TwitterIcon></a>
+                        <a href="https://www.instagram.com/offlabelgakkai/" target="_blank"><InstagramIcon fontSize="large"></InstagramIcon></a>
+                        <a href="https://www.youtube.com/channel/UChKC9yt9aLqkTjIiXPHeHAg/featured" target="_blank"><YouTubeIcon fontSize="large"></YouTubeIcon></a>
+                    </div>
+                }
             </div>
         </>
     )
