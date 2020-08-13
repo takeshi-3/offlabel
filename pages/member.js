@@ -17,7 +17,7 @@ const client = require('contentful').createClient({
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 });
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
     const member = await client.getEntries({content_type: 'member'});
     return {
         props: {

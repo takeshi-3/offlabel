@@ -25,7 +25,7 @@ const client = require('contentful').createClient({
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 });
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
     const news = await client.getEntries({content_type: 'news', limit: 6});
     const library = await client.getEntries({content_type: 'library', limit: 1});
     const events = await client.getEntries({content_type: 'event', limit: 3});

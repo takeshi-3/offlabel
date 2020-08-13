@@ -19,7 +19,7 @@ const client = require('contentful').createClient({
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 });
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
     const ronbun = await client.getEntries({content_type: 'ronbun'});
     return {
         props: {

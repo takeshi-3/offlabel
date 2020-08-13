@@ -20,7 +20,7 @@ const client = require('contentful').createClient({
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 });
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
     const library = await client.getEntries({content_type: 'library'});
     const tags = await client.getEntries({content_type: 'libraryTag'});
     return {
