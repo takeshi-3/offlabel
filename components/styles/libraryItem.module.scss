@@ -1,10 +1,15 @@
 @import '../../styles/colors.scss';
+@import '../../styles/functions.scss';
 
 .wrapper {
     width: 48%;
     margin: 32px 0;
     border: 2px solid $font_color;
     background-color: white;
+
+    @include mq_max(md) {
+        width: 100%;
+    }
 }
 
 .thumb {
@@ -44,11 +49,11 @@
 
     &_tag {
         position: absolute;
-        top: -8px;
-        left: -8px;
+        top: -10px;
+        left: -16px;
         display: inline-block;
         padding: 8px 24px;
-        border: 1px solid white;
+        border: 2px solid white;
         color: white;
         background-color: $main_color;
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);

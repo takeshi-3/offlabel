@@ -19,7 +19,8 @@ import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
 const documentOption = {
     renderNode: {
         [BLOCKS.HEADING_1]: (node, children) => <BlogSecTitle>{children}</BlogSecTitle>,
-        [BLOCKS.QUOTE]: (node, children) => <BlogKeySentence>{children}</BlogKeySentence>
+        [BLOCKS.QUOTE]: (node, children) => <BlogKeySentence>{children}</BlogKeySentence>,
+        [BLOCKS.EMBEDDED_ASSET]: (node) => <img src={node.data.target.fields.file.url} />
     }
 };
 
