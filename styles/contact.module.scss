@@ -5,7 +5,8 @@
 }
 
 .exp {
-    
+    padding: 64px 0;
+    text-align: center;
 }
 
 .select {
@@ -19,6 +20,11 @@
 
     &_txt {
         padding: 16px 0;
+
+        label {
+            display: block;
+            padding-bottom: 5px;
+        }
 
         input[type="text"] {
             width: 100%;

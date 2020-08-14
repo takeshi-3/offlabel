@@ -30,29 +30,29 @@ const Contact = () => {
 
                 <form className={`formrun ${styles.form}`} action="https://form.run/api/v1/r/f893spkylf3x652omsshsamc" method="post">
                     <p className={styles.form_txt}>
-                        <p><label>お名前</label></p>
-                        <input name="name" type="text" />
+                        <label>お名前</label>
+                        <input name="yourname" type="text" />
                     </p>
 
                     <p className={styles.form_txt}>
-                        <p><label>メールアドレス</label></p>
+                        <label>メールアドレス</label>
                         <input name="email" type="text" data-formrun-type="email" data-formrun-required />
                     </p>
 
                     <p className={styles.form_txt}>
-                        <p><label>ご所属</label></p>
+                        <label>ご所属</label>
                         <input name="affiliation" type="text" />
                     </p>
 
                     <p className={styles.form_radio}>
-                        <p><label>メールマガジンの登録</label></p>
+                        <label>メールマガジンの登録</label>
                         <input type="radio" name="magazine" value="all" checked="checked" />全ての情報
                         <input type="radio" name="magazine" value="adequate" />適度な情報量
                         <input type="radio" name="magazine" value="important" />重要な情報のみ
                         <input type="radio" name="magazine" value="no" />登録しない
                     </p>
 
-                    <button type="submit" data-formrun-error-text="未入力の項目があります" data-formrun-submitting-text="送信中">送信</button>
+                    <button type="submit"　data-formrun-submitting-text="送信中">送信</button>
                 </form>
             </main>
         </LayoutTitleBase>
