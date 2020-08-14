@@ -10,7 +10,7 @@ export const AcademyHero = ({image}) => {
     return (
         <div style={{backgroundImage: `url(${image})`}} className={styles.academyHero}>
             <div className={styles.academyHero_wrap}>
-                <img className={styles.academyHero_logo} src="/images/oshareLogo.png" />
+                <div className={styles.academyHero_logo}><img src="/images/oshareLogo.png" /></div>
             </div>
         </div>
     );

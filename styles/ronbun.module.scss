@@ -19,11 +19,12 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-items: flex-start; 
     max-width: 1340px;
     margin: 0 auto;
     padding: 64px 30px 168px;
 
-    img {
+    &_img {
         width: 32%;
         height: auto;
         margin: 24px 0;
