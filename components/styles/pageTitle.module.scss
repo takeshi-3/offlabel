@@ -14,7 +14,7 @@
     background-color: white;
 
     @include mq_max(md) {
-        padding: 8px 24px;
+        padding: 14px 30px;
     }
 }
 
@@ -24,7 +24,7 @@
     align-items: center;
 
     @include mq_max(md) {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     &_str {
