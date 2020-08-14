@@ -44,7 +44,7 @@ const Ronbun = ({ronbun}) => {
                     OFF LABEL独自のコンテンツとしては、研究者自身がアカデミアとしての道を選んだ経緯も紹介しています。 研究を身近に捉え、自らが「考えること」「研究」の担い手になるきっかけ作りなることを願っています。<br /><br />
                     こちらの企画は自身研究のアウトリーチを行いたいと考えいている方は誰でも参加が可能なため、参加希望の場合は以下のリンクにて質問に回答の上、ご参加いただけます。
                 </p>
-                <a target="_blank" href="https://docs.google.com/forms/d/1-tKy9hwjGsAY7c-bznciMl2opXbWi1iPyDz8K6HZg_E"><RoundButton>100人論文に参加する</RoundButton></a>
+                <a target="_blank" href="https://forms.gle/XpvAvi8EDg6UJmhB8"><RoundButton>100人論文に参加する</RoundButton></a>
             </section>
 
             <section className={styles.cont}>

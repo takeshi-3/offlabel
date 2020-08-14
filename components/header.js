@@ -34,8 +34,8 @@ const Header = ({title}) => {
     const menuItems = [
         {link: 'about', name:'About', sub: false}, 
         {link: 'news', name: 'News', sub: false}, 
-        {link: 'event', name: 'Event', sub: false}, 
-        {link: 'member', name: 'Member', sub: false}, 
+        // {link: 'event', name: 'Event', sub: false},
+        // {link: 'member', name: 'Member', sub: false}, 
         {link: 'contact', name: 'Contact', sub: false}, 
         {name: 'O!SHARE Academy', sub: [
             {link: 'library', name: 'Human / Research Library'},
