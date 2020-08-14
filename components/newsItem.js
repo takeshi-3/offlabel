@@ -2,6 +2,8 @@ import styles from './styles/newsItem.module.scss';
 
 import Link from 'next/link';
 
+import {timeToDate} from '../lib/stringFunctions';
+
 const NewsItem = ({fields, id}) => {
     return (
         <div className={styles.post}>
@@ -10,7 +12,7 @@ const NewsItem = ({fields, id}) => {
                 <div className={styles.body}>
                     <h4 className={styles.title}>{fields.title}</h4>
                     {/* <p className={styles.content}>{fields.body}</p> */}
-                    <p className={styles.date}>{fields.date}</p> 
+                    <p className={styles.date}>{timeToDate(fields.date)}</p> 
                 </div>
             </a></Link>
         </div>

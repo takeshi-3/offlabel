@@ -149,13 +149,13 @@ const Home = ({news, library, events, members}) => {
                         OFF LABEL主催・共催のイベントをお届けします。
                     </p>
                     <h1 className={styles.events_coming}>Coming Soon!</h1>
-                    {/* <div className={styles.events_cont}>
+                    <div className={styles.events_cont}>
                         {events.items.length > 0
                             ? events.items.map(event => (
                             <EventItem fields={event.fields} key={event.sys.id} />
                         )) : null}
                     </div>
-                    <RoundButton>More</RoundButton> */}
+                    {/* <RoundButton>More</RoundButton> */}
                 </div>
             </section>
 

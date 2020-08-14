@@ -1,4 +1,5 @@
 import styles from './styles/eventItem.module.scss';
+import {timeToDate} from '../lib/stringFunctions';
 
 const EventItem = ({fields}) => {
     return (
@@ -7,7 +8,7 @@ const EventItem = ({fields}) => {
             <div className={styles.info}>
                 <h2 className={styles.title}>{fields.title}</h2>
                 <p className={styles.abstruct}>{fields.description}</p>
-                <p className={styles.date}>{fields.date}</p>
+                <p className={styles.date}>{timeToDate(fields.date)}</p>
             </div>
         </div>
     );
