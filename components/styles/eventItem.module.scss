@@ -1,9 +1,11 @@
 @import '../../styles/colors.scss';
+@import '../../styles/functions.scss';
 
 .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     // height: 280px;
     margin-bottom: 64px;
     padding: 16px 24px;
@@ -11,21 +13,42 @@
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
     background-color: white;
+
+    @include mq_max(sm) {
+        padding: 16px;
+    }
 }
 
 .thumb {
-    width: 28%;
+    width: 40%;
     height: 100%;
     overflow: hidden;
+
+    @include mq_max(md) {
+        width: 100%;
+    }
 }
 
 .info {
-    width: 70%;
+    width: 60%;
     padding: 16px 24px;
+    
+    @include mq_max(md) {
+        width: 100%;
+        padding: 16px 0;
+    }
+}
+
+.title {
+    padding-bottom: 16px;
 }
 
 .abstruct {
     max-height: 200px;
     overflow: scroll;
-    padding: 16px 0;
+}
+
+.date {
+    padding-top: 16px;
+    font-size: 1.8rem;
 }
