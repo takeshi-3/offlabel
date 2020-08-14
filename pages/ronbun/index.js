@@ -50,7 +50,7 @@ const Ronbun = ({ronbun}) => {
             <section className={styles.cont}>
                 {ronbun.items.length > 0 ?
                     ronbun.items.map(item =>
-                    {/* <img src={item.fields.ronbun.fields.file.url} key={item.sys.id} /> */}
+                    <img src={item.fields.ronbun.fields.file.url} key={item.sys.id} />
                 ) : null}
             </section>
 

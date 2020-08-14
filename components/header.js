@@ -83,8 +83,8 @@ const Header = ({title}) => {
 
             <div className={`${styles.sp_menu} ${menuOpen ? styles.sp_menu_active : ""}`}>
                 {menuItems.map(item => 
-                    !item.sub ? <Link href={item.link} key={item.link}><a>{item.name}</a></Link> : 
-                    <>{item.sub.map(i => <Link href={i.link} key={i.link}><a>{i.name}</a></Link>)}</>
+                    !item.sub ? <Link href={`/${item.link}`} key={item.link}><a>{item.name}</a></Link> : 
+                    <>{item.sub.map(i => <Link href={`/${i.link}`} key={i.link}><a>{i.name}</a></Link>)}</>
                 )}
                 <div className={styles.sp_menu_sns}>
                     <a href="https://www.facebook.com/OFFLABELJP/" target="_blank"><FacebookIcon fontSize="large"></FacebookIcon></a>
