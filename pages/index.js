@@ -148,7 +148,6 @@ const Home = ({news, library, events, members}) => {
                     <p className={styles.events_exp}>
                         OFF LABEL主催・共催のイベントをお届けします。
                     </p>
-                    <h1 className={styles.events_coming}>Coming Soon!</h1>
                     <div className={styles.events_cont}>
                         {events.items.length > 0
                             ? events.items.map(event => (
