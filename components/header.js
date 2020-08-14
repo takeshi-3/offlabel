@@ -17,6 +17,14 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 // custom components
 import {HamburgerButton} from './buttons';
 
+// OGP static info
+const description = "\
+私たちは、アカデミックと現実世界が乖離してしまっている今、\
+カジュアルな形で「学問」の楽しさを広め、\
+研究を社会に発信していきたいと考えています。\
+また伝えるだけではなく、学問や研究を通じて、\
+共に考える場を形成していきたいと思っています。";
+
 const MenuGroup = ({parent, list}) => {
     const [hover, setHover] = useState(false);
 
@@ -62,7 +70,20 @@ const Header = ({title}) => {
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
                 <link rel="shortcut icon" href="/images/favicon.ico"></link>
+
+                {/* ----- formrun sdk ----- */}
                 {title === "Contact" ? <script src="https://sdk.form.run/js/v2/formrun.js"></script> : null}
+
+                {/* ----- OGP ----- */}
+                <meta property="og:title" content={`OFF LABEL | ${title}`} />
+                <meta property="og:description" content={description} />
+                <meta name="keywords" content={keyword} />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={`https://offlabel.tokyo/${title.toLowerCase()}`} />
+                <meta property="og:image" content="/images/ogp.jpg" />
+                <meta property="og:site_name" content="OFF LABEL | 学問と日常を繋ぐ" />
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:site" content="@offlabelgakkai" />
             </Head>
 
             <div className={styles.header}>

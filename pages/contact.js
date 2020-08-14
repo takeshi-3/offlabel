@@ -2,6 +2,7 @@
 import {useEffect, useState} from 'react';
 
 // next components
+import Head from 'next/head';
 
 // custom components
 import {LayoutTitleBase} from '../components/layout';
