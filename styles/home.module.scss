@@ -3,6 +3,10 @@
 
 .hero {
     position: relative;
+
+    @include mq_max(sm) {
+        padding-top: 60px;
+    }
 }
 
 .about {

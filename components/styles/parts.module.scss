@@ -106,4 +106,8 @@
 
 .writer {
     text-align: right;
+
+    @include mq_max(md) {
+        font-size: 1.4rem;
+    }
 }
