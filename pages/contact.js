@@ -45,7 +45,11 @@ const Contact = () => {
                     </p>
 
                     <p className={styles.form_radio}>
-                        <label></label>
+                        <label>メールマガジンの登録</label>
+                        <input type="radio" name="magazine" value="all" checked="checked" />全ての情報
+                        <input type="radio" name="magazine" value="adequate" />適度な情報量
+                        <input type="radio" name="magazine" value="important" />重要な情報のみ
+                        <input type="radio" name="magazine" value="no" />登録しない
                     </p>
 
                     <button type="submit" data-formrun-error-text="未入力の項目があります" data-formrun-submitting-text="送信中">送信</button>
