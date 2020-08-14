@@ -31,10 +31,12 @@
 
         @include mq_max(md) {
             width: 48%;
+            height: auto;
         }
 
         @include mq_max(sm) {
             width: 100%;
+            height: auto;
         }
     }
 }
