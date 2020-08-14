@@ -29,9 +29,12 @@ export const getServerSideProps = async () => {
 };
 
 const Ronbun = ({ronbun}) => {
+    useEffect(() => {
+        console.log(ronbun.items);
+    }, [])
     return (
         <LayoutNormal title="100人論文">
-            <AcademyHero image={"/images/ronbunHero.JPG"} />
+            <AcademyHero image={"/images/ronbunHero.jpg"} />
             <div className={styles.title}><PageTitle>100人論文</PageTitle></div>
 
             <section className={styles.exp}>
@@ -47,7 +50,7 @@ const Ronbun = ({ronbun}) => {
             <section className={styles.cont}>
                 {ronbun.items.length > 0 ?
                     ronbun.items.map(item =>
-                    <img src={item.fields.ronbun.fields.file.url} key={item.sys.id} />
+                    {/* <img src={item.fields.ronbun.fields.file.url} key={item.sys.id} /> */}
                 ) : null}
             </section>
 

@@ -34,7 +34,7 @@ export const getServerSideProps = async () => {
 const Library = ({library, tags}) => {
     return (
         <LayoutNormal title="Human / Research Library">
-            <AcademyHero image={"/images/ronbunBack.png"} />
+            <AcademyHero image={"/images/ronbunBack.jpg"} />
 
             <main className={`mw ${styles.library}`}>
                 <div className={styles.title}><PageTitle>Human / Research Library</PageTitle></div>

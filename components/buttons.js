@@ -20,4 +20,18 @@ export const RoundTag = ({children}) => {
             # {children}
         </button>
     );
-}
+};
+
+export const HamburgerButton = () => {
+    const [active, setActive] = useState(false);
+    return (
+        <div
+            className={`${styles.hamburgerButton} ${active ? styles.hamburgerButton_active : ""}`}
+            onClick={e => setActive(!active)}
+            >
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+    );
+};

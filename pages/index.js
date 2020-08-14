@@ -55,21 +55,6 @@ const Home = ({news, library, events, members}) => {
                 </div>
             </section>
 
-            <section className={styles.about}>
-                <div className="mw">
-                    <Catch>「学問・研究」をよりカジュアルに、<br />日常をよりよく生きるための糧に</Catch>
-                    <p className={styles.about_exp}>
-                        OFF LABELは学問や研究の力を通じて、<br />
-                        人々や組織、国や地域に貼られた、<br />
-                        様々な負の「ラベル」を取り払ってゆくことを目的として、<br />
-                        東京大学大学院博士課程教育リーディングプログラム、<br />
-                        多文化共生・統合人間学プログラム（通称：IHS) 生が設立した団体です。
-                    </p>
-                    <img className={styles.about_logo} src="/images/logo.svg" />
-                    <Link href="/about"><a><button className={styles.about_btn}>About OFF LABEL →</button></a></Link>
-                </div>
-            </section>
-
             <section className={styles.oshare}>
                 <div className="mw">
                     <img className={styles.oshare_logo} src="/images/oshareLogo.png" />
@@ -100,6 +85,21 @@ const Home = ({news, library, events, members}) => {
                     {library.items.length > 0
                     ? library.items.map(lib =>
                         <LibraryItem fields={lib.fields} key={lib.sys.id} id={lib.sys.id} />) : null}
+                </div>
+            </section>
+
+            <section className={styles.about}>
+                <div className="mw">
+                    <Catch>「学問・研究」をよりカジュアルに、<br />日常をよりよく生きるための糧に</Catch>
+                    <p className={styles.about_exp}>
+                        OFF LABELは学問や研究の力を通じて、<br />
+                        人々や組織、国や地域に貼られた、<br />
+                        様々な負の「ラベル」を取り払ってゆくことを目的として、<br />
+                        東京大学大学院博士課程教育リーディングプログラム、<br />
+                        多文化共生・統合人間学プログラム（通称：IHS) 生が設立した団体です。
+                    </p>
+                    <img className={styles.about_logo} src="/images/logo.svg" />
+                    <Link href="/about"><a><button className={styles.about_btn}>About OFF LABEL →</button></a></Link>
                 </div>
             </section>
 

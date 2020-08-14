@@ -14,6 +14,9 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 
+// custom components
+import {HamburgerButton} from './buttons';
+
 const MenuGroup = ({parent, list}) => {
     const [hover, setHover] = useState(false);
 
@@ -39,7 +42,7 @@ const Header = ({title}) => {
             {link: 'ronbun', name: '100人論文'}
         ]}];
 
-    const [mobile, setMobile] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         (function(d) {
@@ -62,24 +65,33 @@ const Header = ({title}) => {
 
             <div className={styles.header}>
                 <Link href="/"><a><img className={styles.header_logo} src="/images/headerLogo.svg" /></a></Link>
+                <div className={styles.header_menu}>
+                    {menuItems.map(menu => (
+                        Array.isArray(menu.sub) ?
+                        <MenuGroup parent={menu.name} list={menu.sub} />
+                        : <Link href={`/${menu.link}`} key={menu.link}><a>{menu.name}</a></Link>
+                    ))}
+                    <a href="https://www.facebook.com/OFFLABELJP/" target="_blank"><FacebookIcon fontSize="large"></FacebookIcon></a>
+                    <a href="https://twitter.com/offlabelgakkai" target="_blank"><TwitterIcon fontSize="large"></TwitterIcon></a>
+                    <a href="https://www.instagram.com/offlabelgakkai/" target="_blank"><InstagramIcon fontSize="large"></InstagramIcon></a>
+                    <a href="https://www.youtube.com/channel/UChKC9yt9aLqkTjIiXPHeHAg/featured" target="_blank"><YouTubeIcon fontSize="large"></YouTubeIcon></a>
+                </div>
+            </div>
 
-                {mobile ? 
-                    <div className={styles.headerSP}>
 
-                    </div>
-                :
-                    <div className={styles.header_menu}>
-                        {menuItems.map(menu => (
-                            Array.isArray(menu.sub) ?
-                            <MenuGroup parent={menu.name} list={menu.sub} />
-                            : <Link href={`/${menu.link}`}><a>{menu.name}</a></Link>
-                        ))}
-                        <a href="https://www.facebook.com/OFFLABELJP/" target="_blank"><FacebookIcon fontSize="large"></FacebookIcon></a>
-                        <a href="https://twitter.com/offlabelgakkai" target="_blank"><TwitterIcon fontSize="large"></TwitterIcon></a>
-                        <a href="https://www.instagram.com/offlabelgakkai/" target="_blank"><InstagramIcon fontSize="large"></InstagramIcon></a>
-                        <a href="https://www.youtube.com/channel/UChKC9yt9aLqkTjIiXPHeHAg/featured" target="_blank"><YouTubeIcon fontSize="large"></YouTubeIcon></a>
-                    </div>
-                }
+            <div onClick={e => setMenuOpen(!menuOpen)}><HamburgerButton /></div>
+
+            <div className={`${styles.sp_menu} ${menuOpen ? styles.sp_menu_active : ""}`}>
+                {menuItems.map(item => 
+                    !item.sub ? <Link href={item.link} key={item.link}><a>{item.name}</a></Link> : 
+                    <>{item.sub.map(i => <Link href={i.link} key={i.link}><a>{i.name}</a></Link>)}</>
+                )}
+                <div className={styles.sp_menu_sns}>
+                    <a href="https://www.facebook.com/OFFLABELJP/" target="_blank"><FacebookIcon fontSize="large"></FacebookIcon></a>
+                    <a href="https://twitter.com/offlabelgakkai" target="_blank"><TwitterIcon fontSize="large"></TwitterIcon></a>
+                    <a href="https://www.instagram.com/offlabelgakkai/" target="_blank"><InstagramIcon fontSize="large"></InstagramIcon></a>
+                    <a href="https://www.youtube.com/channel/UChKC9yt9aLqkTjIiXPHeHAg/featured" target="_blank"><YouTubeIcon fontSize="large"></YouTubeIcon></a>
+                </div>
             </div>
         </>
     )
