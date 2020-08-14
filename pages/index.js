@@ -26,9 +26,9 @@ const client = require('contentful').createClient({
 });
 
 export const getServerSideProps = async () => {
-    const news = await client.getEntries({content_type: 'news', limit: 6});
-    const library = await client.getEntries({content_type: 'library', limit: 2});
-    const events = await client.getEntries({content_type: 'event', limit: 3});
+    const news = await client.getEntries({content_type: 'news', limit: 6, order: '-fields.date' });
+    const library = await client.getEntries({content_type: 'library', limit: 2, order: 'sys.createdAt'});
+    const events = await client.getEntries({content_type: 'event', limit: 3, order: '-fields.date'});
     const members = await client.getEntries({content_type: 'member', limit: 12});
     return {
         props: {
