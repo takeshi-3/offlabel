@@ -79,7 +79,7 @@ const Header = ({title}) => {
                 <meta property="og:description" content={description} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={`https://offlabel.tokyo/${title.toLowerCase()}`} />
-                <meta property="og:image" content="/images/ogp.jpg" />
+                <meta property="og:image" content="https://offlabel.tokyo/images/ogp.jpg" />
                 <meta property="og:site_name" content="OFF LABEL | 学問と日常を繋ぐ" />
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:site" content="@offlabelgakkai" />
