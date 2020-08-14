@@ -31,28 +31,38 @@ const Contact = () => {
                 <form className={`formrun ${styles.form}`} action="https://form.run/api/v1/r/f893spkylf3x652omsshsamc" method="post">
                     <p className={styles.form_txt}>
                         <label>お名前</label>
-                        <input name="yourname" type="text" />
+                        <input name="名前" type="text" />
                     </p>
 
                     <p className={styles.form_txt}>
                         <label>メールアドレス</label>
-                        <input name="email" type="text" data-formrun-type="email" data-formrun-required />
+                        <input name="メールアドレス" type="text" data-formrun-type="email" data-formrun-required />
                     </p>
 
                     <p className={styles.form_txt}>
                         <label>ご所属</label>
-                        <input name="affiliation" type="text" />
+                        <input name="所属" type="text" />
+                    </p>
+
+                    <p className={styles.form_txt}>
+                        <label>お問い合わせ件名</label>
+                        <input name="件名" type="text" />
+                    </p>
+
+                    <p className={styles.form_txt}>
+                        <label>お問い合わせ内容</label>
+                        <textarea name="お問い合わせ内容"></textarea>
                     </p>
 
                     <p className={styles.form_radio}>
                         <label>メールマガジンの登録</label>
-                        <input type="radio" name="magazine" value="all" checked="checked" />全ての情報
-                        <input type="radio" name="magazine" value="adequate" />適度な情報量
-                        <input type="radio" name="magazine" value="important" />重要な情報のみ
-                        <input type="radio" name="magazine" value="no" />登録しない
+                        <input type="radio" name="メールマガジン" value="全ての情報" /><span>全ての情報</span>
+                        <input type="radio" name="メールマガジン" value="適度な情報量" /><span>適度な情報量</span>
+                        <input type="radio" name="メールマガジン" value="重要な情報のみ" /><span>重要な情報のみ</span>
+                        <input type="radio" name="メールマガジン" value="登録しない" /><span>登録しない</span>
                     </p>
 
-                    <button type="submit"　data-formrun-submitting-text="送信中">送信</button>
+                    <button className={styles.form_submit} type="submit"　data-formrun-submitting-text="送信中">送信</button>
                 </form>
             </main>
         </LayoutTitleBase>
