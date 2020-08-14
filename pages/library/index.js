@@ -48,12 +48,12 @@ const Library = ({library, tags}) => {
                     </p>
                 </section>
 
-                <section className={styles.tags}>
+                {/* <section className={styles.tags}>
                     {tags.items.length > 0 ?
                         tags.items.map(item =>
                         <RoundTag>{item.fields.name}</RoundTag>
                     ) : null}
-                </section>
+                </section> */}
 
                 <section className={styles.cont}>
                     {library.items.length > 0 ?
@@ -62,7 +62,7 @@ const Library = ({library, tags}) => {
                     ) : null}
                 </section>
 
-                <RoundButton>More</RoundButton>
+                {/* <RoundButton>More</RoundButton> */}
             </main>
         </LayoutNormal>
     )
