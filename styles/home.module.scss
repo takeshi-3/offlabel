@@ -9,6 +9,7 @@
     background-color: $base_color;
 
     &_exp {
+        max-width: 640px;
         margin: 0 auto;
         padding: 64px 0 40px;
         line-height: 3.5em;
@@ -56,6 +57,23 @@
     &_exp {
         padding: 64px 0;
         text-align: center;
+        line-height: 2.3;
+    }
+
+    &_abstract {
+        width: 100%;
+        max-width: 640px;
+        margin: 0 auto 64px;
+        padding: 16px 24px;
+        border: 2px solid $font_color;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+        background-color: white;
+        line-height: 2.3;
+    }
+
+    &_abstract_2 {
+        max-width: none;
+        margin-top: 104px;
     }
 
     &_cont {
@@ -115,7 +133,7 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        padding: 104px 0 64px;
+        padding: 40px 0 64px;
 
         img {
             width: 52px;
@@ -146,8 +164,8 @@
         transform: translateX(-50%);
     
         &_txt {
-            font-size: 1.2rem;
-            font-weight: 300;
+            font-size: 1.5rem;
+            font-weight: 400;
             padding-bottom: 5px;
         }
     
@@ -183,14 +201,32 @@
     padding: 64px 30px;
     background-color: $base_color;
 
+    &_exp {
+        max-width: 570px;
+        margin: 0 auto;
+        padding: 64px 0 32px;
+        text-align: center;
+    }
+
     &_cont {
         padding: 64px 0 16px;
+    }
+
+    &_coming {
+        text-align: center;
     }
 }
 
 .members {
     padding: 64px 30px;
     background-color: white;
+
+    &_exp {
+        max-width: 570px;
+        margin: 0 auto;
+        padding: 64px 0 32px;
+        text-align: center;
+    }
 
     &_cont {
         display: flex;

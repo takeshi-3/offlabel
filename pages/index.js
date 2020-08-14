@@ -55,15 +55,21 @@ const Home = ({news, library, events, members}) => {
                 <div className="mw">
                     <img className={styles.oshare_logo} src="/images/oshareLogo.png" />
                     <h3 className={styles.oshare_exp}>
-                        新しい知識を知り得たときの、<br />
-                        ソワソワと血が騒ぐような感覚をシェアするプラットフォーム
+                        新しい知識や考え方に触れたときのワクワクをプロデュース。<br />
+                        学問や研究を日常と繋げ、シェアするプラットフォーム。
                     </h3>
+                    <p className={styles.oshare_abstract}>
+                        O!SHARE Academyは、ポップでカジュアルな切り口から学問や研究に関する情報を皆さんにお届けします。
+                        「学問」「研究」と聞くと、即座に「難しいもの」「私には関係ない」と思ってしまう方も多いかもしれません。
+                        しかしながら、学問や研究を通じて、人々が日常で抱えている問題や悩みを解決したり、
+                        完全に解決することは難しくても状況を少しでも良くすることが出来ると私たちは考えています。
+                    </p>
                     <h4 className={styles.oshare_cont}>▼ CONTENTS</h4>
                     <div className={styles.oshare_links}>
                         <Link href="/library"><div className={`${styles.oshare_link} ${styles.oshare_link_library}`}>
                             <div className={styles.oshare_link_back}>
                                 <h3>Human / Research Library</h3>
-                                <p>どうやって研究を始めるの？研究者ってどんな人たち？ その疑問に答えられるようなコンテンツを揃えています。</p>
+                                <p>Human/Research Library では多種多様な「問い」と共に、生きてきた「研究者・研究家」のライフストーリーをフィーチャーします。</p>
                             </div>
                         </div></Link>
                         <Link href="/ronbun"><div className={`${styles.oshare_link} ${styles.oshare_link_ronbun}`}>
@@ -73,6 +79,16 @@ const Home = ({news, library, events, members}) => {
                             </div>
                         </div></Link>
                     </div>
+                    <p className={`${styles.oshare_abstract} ${styles.oshare_abstract_2}`}>
+                        O!SHARE Academyでは、1人では考えきれない問題や課題を探求するためのツールや情報を提供し、
+                        研究とつなげることによって、何となく疑問に思っていることをより深めるための交流の場を作っていきます。
+                        例えば普段とは少し異なる切り口を通じて共有し、新たな思考を生み出して行動のきっかけになるような情報をシェアしていきます。
+                        情報過多な現代を生きるには、何が正しく、何が間違っているのか、自分の力で情報を吟味し判断するリテラシー能力が必要です。
+                        それには、教養や知識も必要です。
+                        また自分の「問い」を深め、大切に育てる必要もあります。
+                        自分の興味・関心がどのように「問い」に昇華され、探求し、研究し、共有されているのかを、
+                        「研究」を行う人にフォーカスをあて発信する場も創造していきます。
+                    </p>
                     <div className={styles.oshare_featured}>
                         <img src='/images/oshareFace.png' />
                         <h4>Featured Topic</h4>
@@ -87,20 +103,23 @@ const Home = ({news, library, events, members}) => {
                 </div>
 
                 <div className={styles.oshare_path}>
-                    <p className={styles.oshare_path_txt}>OFF LABELとは？</p>
+                    <p className={styles.oshare_path_txt}>Produce by OFF LABEL</p>
                     <p className={styles.oshare_path_line}></p>
                 </div>
             </section>
 
             <section className={styles.about}>
                 <div className="mw">
-                    <Catch>「学問・研究」をよりカジュアルに、<br />日常をよりよく生きるための糧に</Catch>
+                    <Catch>「学問・研究」をよりカジュアルに、<br />日常をよりよく生きるための糧に。</Catch>
                     <p className={styles.about_exp}>
-                        OFF LABELは学問や研究の力を通じて、<br />
-                        人々や組織、国や地域に貼られた、<br />
-                        様々な負の「ラベル」を取り払ってゆくことを目的として、<br />
-                        東京大学大学院博士課程教育リーディングプログラム、<br />
-                        多文化共生・統合人間学プログラム（通称：IHS) 生が設立した団体です。
+                        私たちは、アカデミックと現実世界が乖離してしまっている今、<br />
+                        カジュアルな形で「学問」の楽しさを広め、<br />
+                        研究を社会に発信していきたいと考えています。<br />
+                        また伝えるだけではなく、学問や研究を通じて、<br />
+                        共に考える場を形成していきたいと思っています。<br /><br />
+                        そうすることで現状社会を取り巻く課題、<br />研究者を取り巻く問題を解決するきっかけになると私たちは考えています。<br /><br />
+                        OFF LABELという団体名には学問や研究の力を通じて、<br />
+                        人々や組織、国や地域に貼られた、<br />様々な負の「ラベル」を取り払っていくという想いが込められています。
                     </p>
                     <img className={styles.about_logo} src="/images/logo.svg" />
                     <Link href="/about"><a><button className={styles.about_btn}>About OFF LABEL →</button></a></Link>
@@ -111,8 +130,7 @@ const Home = ({news, library, events, members}) => {
                 <div className="mw">
                     <PageTitle>News</PageTitle>
                     <p className={styles.news_exp}>
-                        OFF LABELメンバーは各自のフィールドで研究を続けながらも、
-                        常にアウトリーチ活動としてOFF LABELの活動にも取り組んでいます。
+                        OFF LABELの活動に関連する最新情報をお届けします。
                     </p>
                     <div className={styles.news_cont}>
                         {news.items.length > 0
@@ -127,26 +145,34 @@ const Home = ({news, library, events, members}) => {
             <section className={styles.events}>
                 <div className="mw">
                     <PageTitle>Event</PageTitle>
-                    <div className={styles.events_cont}>
+                    <p className={styles.events_exp}>
+                        OFF LABEL主催・共催のイベントをお届けします。
+                    </p>
+                    <h1 className={styles.events_coming}>Coming Soon!</h1>
+                    {/* <div className={styles.events_cont}>
                         {events.items.length > 0
                             ? events.items.map(event => (
                             <EventItem fields={event.fields} key={event.sys.id} />
                         )) : null}
                     </div>
-                    <RoundButton>More</RoundButton>
+                    <RoundButton>More</RoundButton> */}
                 </div>
             </section>
 
             <section className={styles.members}>
                 <div className="mw">
                     <PageTitle>Member</PageTitle>
-                    <div className={styles.members_cont}>
+                    <p className={styles.members_exp}>
+                        OFF LABELの研究色豊かなメンバーを紹介します。
+                    </p>
+                    <h1 className={styles.events_coming}>Coming Soon!</h1>
+                    {/* <div className={styles.members_cont}>
                         {members.items.length > 0 
                             ? members.items.map(member => (
                                 <div className={styles.members_thumb} key={member.sys.id}><img src={member.fields.thumbnail.fields.file.url} /></div>
                             )) : null}
                     </div>
-                    <RoundButton>More</RoundButton>
+                    <RoundButton>More</RoundButton> */}
                 </div>
             </section>
 
@@ -154,7 +180,7 @@ const Home = ({news, library, events, members}) => {
                 <div className="mw">
                     <Banner 
                         title="Reach Us"
-                        exp="OFF LABELのイベント情報などが届くメールマガジンの登録、 イベント・活動内容に関するお問い合わせなどはこちらから"
+                        exp="OFF LABELへの質問、メールはこちらから"
                     />
                 </div>
             </section>
