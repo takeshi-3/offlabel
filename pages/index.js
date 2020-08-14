@@ -27,7 +27,7 @@ const client = require('contentful').createClient({
 
 export const getServerSideProps = async () => {
     const news = await client.getEntries({content_type: 'news', limit: 6});
-    const library = await client.getEntries({content_type: 'library', limit: 1});
+    const library = await client.getEntries({content_type: 'library', limit: 2});
     const events = await client.getEntries({content_type: 'event', limit: 3});
     const members = await client.getEntries({content_type: 'member', limit: 12});
     return {
@@ -49,10 +49,6 @@ const Home = ({news, library, events, members}) => {
             <section 
                 className={styles.hero}>
                 <img src="/images/hero.png" />
-                <div className={styles.hero_path}>
-                    <p className={styles.hero_path_txt}>OFF LABELとは？</p>
-                    <p className={styles.hero_path_line}></p>
-                </div>
             </section>
 
             <section className={styles.oshare}>
@@ -82,9 +78,17 @@ const Home = ({news, library, events, members}) => {
                         <h4>Featured Topic</h4>
                         <p></p>
                     </div>
-                    {library.items.length > 0
-                    ? library.items.map(lib =>
-                        <LibraryItem fields={lib.fields} key={lib.sys.id} id={lib.sys.id} />) : null}
+
+                    <div className={styles.oshare_article}>
+                        {library.items.length > 0
+                        ? library.items.map(lib =>
+                            <LibraryItem fields={lib.fields} key={lib.sys.id} id={lib.sys.id} />) : null}
+                    </div>
+                </div>
+
+                <div className={styles.oshare_path}>
+                    <p className={styles.oshare_path_txt}>OFF LABELとは？</p>
+                    <p className={styles.oshare_path_line}></p>
                 </div>
             </section>
 

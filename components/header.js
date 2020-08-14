@@ -61,6 +61,7 @@ const Header = ({title}) => {
                 <title>OFF LABEL | {title}</title>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+                {title === "Contact" ? <script src="https://sdk.form.run/js/v2/formrun.js"></script> : null}
             </Head>
 
             <div className={styles.header}>

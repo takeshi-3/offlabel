@@ -2,27 +2,6 @@
 
 .hero {
     position: relative;
-
-    &_path {
-        position: absolute;
-        z-index: 5;
-        bottom: -18px;
-        left: 50%;
-        transform: translateX(-50%);
-
-        &_txt {
-            font-size: 1.2rem;
-            font-weight: 300;
-            padding-bottom: 5px;
-        }
-
-        &_line {
-            height: 35px;
-            width: 0;
-            margin: 0 auto;
-            border-left: 0.75px solid $font_color;
-        }
-    }
 }
 
 .about {
@@ -64,6 +43,7 @@
 }
 
 .oshare {
+    position: relative;
     padding: 104px 30px;
     background-color: white;
 
@@ -150,10 +130,38 @@
             flex-grow: 1;
         }
     }
+
+    &_article {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &_path {
+        // display: none;
+        position: absolute;
+        z-index: 5;
+        bottom: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+    
+        &_txt {
+            font-size: 1.2rem;
+            font-weight: 300;
+            padding-bottom: 5px;
+        }
+    
+        &_line {
+            height: 35px;
+            width: 0;
+            margin: 0 auto;
+            border-left: 0.75px solid $font_color;
+        }
+    }
 }
 
 .news {
-    padding: 64px 0;
+    padding: 64px 30px;
     background-color: $main_color_light;
 
     &_exp {
@@ -172,7 +180,7 @@
 }
 
 .events {
-    padding: 64px 0;
+    padding: 64px 30px;
     background-color: $base_color;
 
     &_cont {
@@ -181,7 +189,7 @@
 }
 
 .members {
-    padding: 64px 0;
+    padding: 64px 30px;
     background-color: white;
 
     &_cont {
