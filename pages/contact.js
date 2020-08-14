@@ -31,21 +31,21 @@ const Contact = () => {
                 <form className={`formrun ${styles.form}`} action="https://form.run/api/v1/r/f893spkylf3x652omsshsamc" method="post">
                     <p className={styles.form_txt}>
                         <p><label>お名前</label></p>
-                        <input name="お名前" type="text" />
+                        <input name="name" type="text" />
                     </p>
 
                     <p className={styles.form_txt}>
                         <p><label>メールアドレス</label></p>
-                        <input name="お名前" type="text" data-formrun-type="email" data-formrun-required />
+                        <input name="email" type="text" data-formrun-type="email" data-formrun-required />
                     </p>
 
                     <p className={styles.form_txt}>
                         <p><label>ご所属</label></p>
-                        <input name="ご所属" type="text" />
+                        <input name="affiliation" type="text" />
                     </p>
 
                     <p className={styles.form_radio}>
-                        <label>メールマガジンの登録</label>
+                        <p><label>メールマガジンの登録</label></p>
                         <input type="radio" name="magazine" value="all" checked="checked" />全ての情報
                         <input type="radio" name="magazine" value="adequate" />適度な情報量
                         <input type="radio" name="magazine" value="important" />重要な情報のみ
