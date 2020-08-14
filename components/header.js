@@ -77,7 +77,6 @@ const Header = ({title}) => {
                 {/* ----- OGP ----- */}
                 <meta property="og:title" content={`OFF LABEL | ${title}`} />
                 <meta property="og:description" content={description} />
-                <meta name="keywords" content={keyword} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={`https://offlabel.tokyo/${title.toLowerCase()}`} />
                 <meta property="og:image" content="/images/ogp.jpg" />
