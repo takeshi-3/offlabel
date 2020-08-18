@@ -74,7 +74,7 @@
         &_img {
             position: absolute;
             width: 38%;
-            max-width: 520px;
+            max-width: 510px;
 
             &:first-child {
                 top: 5%;
@@ -87,12 +87,12 @@
             }
 
             &:nth-child(3) {
-                bottom: 0%;
+                bottom: -5%;
                 right: 3%;
             }
 
             &:last-child {
-                top: 5%;
+                top: 2%;
                 right: 0%;
             }
         }
@@ -368,4 +368,13 @@
 .reach {
     padding: 64px 0;
     background-color: white;
+}
+
+/* ------------- animation css ----------------- */
+.heroCentEnter {
+    opacity: 0;
+}
+.heroCentEnterActive {
+    opacity: 1;
+    transition: all 2500ms ease;
 }

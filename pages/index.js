@@ -19,6 +19,7 @@ import styles from '../styles/home.module.scss';
 
 // framer-motion
 import {motion} from 'framer-motion';
+import { CSSTransition } from 'react-transition-group';
 
 const client = require('contentful').createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -41,19 +42,25 @@ export const getServerSideProps = async () => {
 };
 
 const Home = ({news, library, events, members}) => {
+    const [inProp, setInProp] = useState(false);
+
     useEffect(() => {
-        console.log(members);
+        setInProp(true);
     }, []);
+
     return (
         <LayoutNormal title="Home">
             <section className={styles.hero}>
-                <div className={styles.hero_cent}>
+                <CSSTransition in={inProp} timeout={2000} classNames={{
+                    enter: styles.heroCentEnter,
+                    enterActive: styles.heroCentEnterActive,
+                }}><div className={styles.hero_cent}>
                     <img src="/images/hero/logo.jpg" className={styles.hero_logo} />
                     <div className={styles.hero_message}>
                         <p><span>おしゃれ</span>で<span>カジュアル</span>な</p>
                         <p>学問への入り口</p>
                     </div>
-                </div>
+                </div></CSSTransition>
                 <div className={styles.hero_profs}>
                     <img src="/images/hero/prof1.svg" className={styles.hero_profs_img} />
                     <img src="/images/hero/prof2.svg" className={styles.hero_profs_img} />
