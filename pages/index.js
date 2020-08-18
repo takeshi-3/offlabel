@@ -46,9 +46,21 @@ const Home = ({news, library, events, members}) => {
     }, []);
     return (
         <LayoutNormal title="Home">
-            <section 
-                className={styles.hero}>
-                <img src="/images/hero.png" />
+            <section className={styles.hero}>
+                <div className={styles.hero_cent}>
+                    <img src="/images/hero/logo.jpg" className={styles.hero_logo} />
+                    <div className={styles.hero_message}>
+                        <p><span>おしゃれ</span>で<span>カジュアル</span>な</p>
+                        <p>学問への入り口</p>
+                    </div>
+                </div>
+                <div className={styles.hero_profs}>
+                    <img src="/images/hero/prof1.svg" className={styles.hero_profs_img} />
+                    <img src="/images/hero/prof2.svg" className={styles.hero_profs_img} />
+                    <img src="/images/hero/prof3.svg" className={styles.hero_profs_img}/>
+                    <img src="/images/hero/prof4.svg" className={styles.hero_profs_img}/>
+                </div>
+                <img src="/images/hero/offlabel.svg" className={styles.hero_offlabel} />
             </section>
 
             <section className={styles.oshare}>

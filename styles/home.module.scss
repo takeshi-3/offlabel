@@ -2,7 +2,113 @@
 @import './functions.scss';
 
 .hero {
+    width: 100%;
+    height: 100vh;
     position: relative;
+    background-color: $main_color_light;
+
+    &_cent {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        z-index: 50;
+        width: 100%;
+    }
+
+    &_logo {
+        width: 100%;
+        max-width: 550px;
+        height: auto;
+        margin: 0 auto 30px;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+
+        @include mq_max(md) {
+            width: 80%;
+            margin-bottom: 16px;
+        }
+    }
+
+    &_message {
+        padding: 10px 24px;
+        border-radius: 10px;
+        width: 100%;
+
+        p {
+            font-size: 23px;
+            text-align: center;
+            letter-spacing: 2rem;
+            line-height: 2.5;
+            color: white;
+
+            @include mq_max(md) {
+                font-size: 1.6rem;
+                letter-spacing: 1rem;
+            }
+
+            span {
+                display: inline-block;
+                font-size: 30px;
+
+                @include mq_max(md) {
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+
+    &_profs {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        opacity: 0.9;
+
+        @include mq_max(md) {
+            height: 95vh;
+        }
+
+        @include mq_max(sm) {
+            height: 85vh;
+        }
+
+        &_img {
+            position: absolute;
+            width: 38%;
+            max-width: 520px;
+
+            &:first-child {
+                top: 5%;
+                left: 3%;
+            }
+
+            &:nth-child(2) {
+                bottom: 5%;
+                left: 3%;
+            }
+
+            &:nth-child(3) {
+                bottom: 0%;
+                right: 3%;
+            }
+
+            &:last-child {
+                top: 5%;
+                right: 0%;
+            }
+        }
+    }
+
+    &_offlabel {
+        position: absolute;
+        z-index: 30;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 90%;
+        left: 50%;
+        width: 15%;
+        max-width: 200px;
+    }
+
 
     @include mq_max(sm) {
         padding-top: 60px;
