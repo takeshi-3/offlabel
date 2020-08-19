@@ -1,5 +1,5 @@
 // react
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 
 // next components
 import Link from 'next/link';
@@ -17,9 +17,10 @@ import {LayoutNormal} from '../components/layout';
 // style
 import styles from '../styles/home.module.scss';
 
-// framer-motion
-import {motion} from 'framer-motion';
+// animation
+import {useSpring, animated, config, useChain} from 'react-spring';
 import { CSSTransition } from 'react-transition-group';
+import { addScaleCorrection } from 'framer-motion';
 
 const client = require('contentful').createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -42,32 +43,59 @@ export const getServerSideProps = async () => {
 };
 
 const Home = ({news, library, events, members}) => {
-    const [inProp, setInProp] = useState(false);
+    const logoRef = useRef();
+    const logoSpring = useSpring({
+        ref: logoRef,
+        config: config.default,
+        from: {opacity: 0, transform: 'translateY(50px)'},
+        to: {opacity: 1, transform: 'translateY(0px)'},
+        config: config.gentle
+    });
+
+    const messageRef = useRef();
+    const messageSpring = useSpring({
+        ref: messageRef,
+        from: {opacity: 0, transform: 'translateY(50px)'},
+        to: {opacity: 1, transform: 'translateY(0px)'},
+        config: config.gentle
+    });
+
+    const offlabelRef = useRef();
+    const offlabelSpring = useSpring({
+        ref: offlabelRef,
+        from: {opacity: 0, transform: 'translateY(-30px)'},
+        to: {opacity: 1, transform: 'translateY(0px)'},
+        config: config.gentle
+    });
+
+
+    useChain([logoRef, messageRef, offlabelRef], [0, 0.4, 1.2]);
+
 
     useEffect(() => {
-        setInProp(true);
     }, []);
 
     return (
         <LayoutNormal title="Home">
             <section className={styles.hero}>
-                <CSSTransition in={inProp} timeout={2000} classNames={{
-                    enter: styles.heroCentEnter,
-                    enterActive: styles.heroCentEnterActive,
-                }}><div className={styles.hero_cent}>
-                    <img src="/images/hero/logo.jpg" className={styles.hero_logo} />
-                    <div className={styles.hero_message}>
-                        <p><span>おしゃれ</span>で<span>カジュアル</span>な</p>
-                        <p>学問への入り口</p>
-                    </div>
-                </div></CSSTransition>
+                <div className={styles.hero_cent}>
+                    <animated.div style={logoSpring}>
+                        <img src="/images/hero/logo.jpg" className={styles.hero_logo} />
+                    </animated.div>
+                    <animated.div style={messageSpring}>
+                        <div className={styles.hero_message}>
+                            <p><span>おしゃれ</span>で<span>カジュアル</span>な</p>
+                            <p>学問への入り口</p>
+                        </div>
+                    </animated.div>
+                </div>
                 <div className={styles.hero_profs}>
                     <img src="/images/hero/prof1.svg" className={styles.hero_profs_img} />
                     <img src="/images/hero/prof2.svg" className={styles.hero_profs_img} />
                     <img src="/images/hero/prof3.svg" className={styles.hero_profs_img}/>
                     <img src="/images/hero/prof4.svg" className={styles.hero_profs_img}/>
                 </div>
-                <img src="/images/hero/offlabel.svg" className={styles.hero_offlabel} />
+                <animated.div style={offlabelSpring}><img src="/images/hero/offlabel.svg" className={styles.hero_offlabel} /></animated.div>
             </section>
 
             <section className={styles.oshare}>

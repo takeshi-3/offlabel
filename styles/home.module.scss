@@ -33,6 +33,7 @@
         padding: 10px 24px;
         border-radius: 10px;
         width: 100%;
+        // opacity: 0;
 
         p {
             font-size: 23px;
@@ -102,8 +103,8 @@
         position: absolute;
         z-index: 30;
         position: absolute;
-        transform: translate(-50%, -50%);
-        top: 90%;
+        transform: translateX(-50%);
+        bottom: 60px;
         left: 50%;
         width: 15%;
         max-width: 200px;
@@ -371,10 +372,3 @@
 }
 
 /* ------------- animation css ----------------- */
-.heroCentEnter {
-    opacity: 0;
-}
-.heroCentEnterActive {
-    opacity: 1;
-    transition: all 2500ms ease;
-}
