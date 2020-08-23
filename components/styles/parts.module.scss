@@ -13,7 +13,7 @@
     line-height: 2.3em;
 
     @include mq_max(md) {
-        padding: 16px 24px;
+        padding: 16px;
         font-size: 1.8rem;
     }
 }

@@ -21,6 +21,7 @@ import styles from '../styles/home.module.scss';
 import {useSpring, animated, config, useChain} from 'react-spring';
 import { CSSTransition } from 'react-transition-group';
 import { addScaleCorrection } from 'framer-motion';
+import { common } from '@material-ui/core/colors';
 
 const client = require('contentful').createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -43,20 +44,26 @@ export const getServerSideProps = async () => {
 };
 
 const Home = ({news, library, events, members}) => {
+    const [open, setOpen] = useState(false);
+    const [scroll, setScroll] = useState(0);
+
+    // Hero animation
     const logoRef = useRef();
     const logoSpring = useSpring({
         ref: logoRef,
-        config: config.default,
         from: {opacity: 0, transform: 'translateY(50px)'},
         to: {opacity: 1, transform: 'translateY(0px)'},
+        delay: 700,
         config: config.gentle
     });
+
 
     const messageRef = useRef();
     const messageSpring = useSpring({
         ref: messageRef,
         from: {opacity: 0, transform: 'translateY(50px)'},
         to: {opacity: 1, transform: 'translateY(0px)'},
+        delay: 700,
         config: config.gentle
     });
 
@@ -65,15 +72,23 @@ const Home = ({news, library, events, members}) => {
         ref: offlabelRef,
         from: {opacity: 0, transform: 'translateY(-30px)'},
         to: {opacity: 1, transform: 'translateY(0px)'},
+        delay: 700,
         config: config.gentle
     });
 
-
     useChain([logoRef, messageRef, offlabelRef], [0, 0.4, 1.2]);
 
-
     useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
     }, []);
+
+    const handleScroll = (e) => {
+        const scrollTop = Math.max(
+            window.pageYOffset,
+            document.documentElement.scrollTop,
+            document.body.scrollTop);
+        // setScroll(scrollTop);
+    };
 
     return (
         <LayoutNormal title="Home">
@@ -102,8 +117,8 @@ const Home = ({news, library, events, members}) => {
                 <div className="mw">
                     <img className={styles.oshare_logo} src="/images/oshareLogo.png" />
                     <h3 className={styles.oshare_exp}>
-                        新しい知識や考え方に触れたときのワクワクをプロデュース。<br />
-                        学問や研究を日常と繋げ、シェアするプラットフォーム。
+                        新しい知識や考え方に触れたときの<span>ワクワクをプロデュース。</span><br />
+                        学問や研究を日常と繋げ、<span>シェアするプラットフォーム。</span>
                     </h3>
                     <p className={styles.oshare_abstract}>
                         O!SHARE Academyは、ポップでカジュアルな切り口から学問や研究に関する情報を皆さんにお届けします。
@@ -157,6 +172,7 @@ const Home = ({news, library, events, members}) => {
 
             <section className={styles.about}>
                 <div className="mw">
+                <img className={styles.about_logo} src="/images/logo.svg" />
                     <Catch>「学問・研究」をよりカジュアルに、<br />日常をよりよく生きるための糧に。</Catch>
                     <p className={styles.about_exp}>
                         私たちは、アカデミックと現実世界が乖離してしまっている今、<br />
@@ -168,8 +184,7 @@ const Home = ({news, library, events, members}) => {
                         OFF LABELという団体名には学問や研究の力を通じて、<br />
                         人々や組織、国や地域に貼られた、<br />様々な負の「ラベル」を取り払っていくという想いが込められています。
                     </p>
-                    <img className={styles.about_logo} src="/images/logo.svg" />
-                    <Link href="/about"><a><button className={styles.about_btn}>About OFF LABEL →</button></a></Link>
+                    <Link href="/about"><a><button className={styles.about_btn}>More about OFFLABEL</button></a></Link>
                 </div>
             </section>
 
@@ -177,7 +192,7 @@ const Home = ({news, library, events, members}) => {
                 <div className="mw">
                     <PageTitle>News</PageTitle>
                     <p className={styles.news_exp}>
-                        OFF LABELの活動に関連する最新情報をお届けします。
+                        OFF LABELの活動に関連する<span>最新情報をお届けします。</span>
                     </p>
                     <div className={styles.news_cont}>
                         {news.items.length > 0
