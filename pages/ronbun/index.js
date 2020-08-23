@@ -34,7 +34,7 @@ const Ronbun = ({ronbun}) => {
     }, [])
     return (
         <LayoutNormal title="100人論文">
-            <AcademyHero image={"/images/ronbunHero.jpg"} />
+            <AcademyHero image={"/images/ronbunBack2.jpg"} />
             <div className={styles.title}><PageTitle>100人論文</PageTitle></div>
 
             <section className={styles.exp}>
