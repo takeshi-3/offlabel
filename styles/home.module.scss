@@ -129,16 +129,24 @@
         padding: 64px 20px;
     }
 
+    &_catch {
+        padding-bottom: 64px;
+
+        @include mq_max(sm) {
+            padding-bottom: 24px;
+        }
+    }
+
     &_exp {
         max-width: 640px;
         margin: 0 auto;
-        padding: 64px 24px 40px;
+        padding: 24px;
         line-height: 2.5em;
         font-size: 1.8rem;
         text-align: center;
 
         @include mq_max(md) {
-            padding: 40px 16px;
+            padding: 16px;
             font-size: 1.5rem;
             text-align: left;
         }

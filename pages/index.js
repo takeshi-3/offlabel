@@ -10,6 +10,7 @@ import LibraryItem from '../components/libraryItem';
 import Banner from '../components/banner';
 import {RoundButton} from '../components/buttons';
 import {Catch} from '../components/parts.js';
+import {InViewFade, InViewRotate} from '../components/inView';
 
 // custom components
 import {LayoutNormal} from '../components/layout';
@@ -18,10 +19,8 @@ import {LayoutNormal} from '../components/layout';
 import styles from '../styles/home.module.scss';
 
 // animation
-import {useSpring, animated, config, useChain} from 'react-spring';
-import { CSSTransition } from 'react-transition-group';
-import { addScaleCorrection } from 'framer-motion';
-import { common } from '@material-ui/core/colors';
+import {useSpring, animated, config, useChain, useTransition} from 'react-spring';
+import {useInView} from 'react-intersection-observer';
 
 const client = require('contentful').createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -43,9 +42,57 @@ export const getServerSideProps = async () => {
     }
 };
 
+const SectionNews = ({news}) => {
+    const [ref, inView] = useInView({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+
+    const titleRef = useRef();
+    const titleSpring = useSpring({
+        ref: titleRef,
+        to: {opacity: inView ? 1 : 0, transform: inView ? 'rotateX(0)' : 'rotateX(180deg)'},
+        config: config.slow
+    });
+
+    const textRef = useRef();
+    const textSpring = useSpring({
+        ref: textRef,
+        to: {opacity: inView ? 1 : 0, transform: inView ? 'translateY(0)' : 'translateY(50px)'},
+        config: config.slow
+    });
+
+    const itemRef = useRef();
+    const itemSpring = useTransition(inView ? news.items : [], item => item.sys.id, {
+        ref: itemRef,
+        unique: true,
+        trail: 400 / news.items.length,
+        from: {opacity: 0, transform: 'scale(0)'},
+        enter: {opacity: 1, transform: 'scale(1)'},
+    });
+
+    useChain([titleRef, itemRef], [0, 0.6]);
+
+    return (
+        <div className={styles.news} ref={ref}>
+            <div className="mw">
+                <animated.div style={titleSpring}><PageTitle>News</PageTitle></animated.div>
+                <animated.div className={styles.news_exp} style={textSpring}>
+                    <p>OFF LABELの活動に関連する<span>最新情報をお届けします。</span></p>
+                </animated.div>
+                <div className={styles.news_cont}>
+                    {news.items.length > 0
+                        ? itemSpring.map(({item, key, props}) => (
+                            <NewsItem fields={item.fields} key={key} id={item.sys.id} animProps={props}/>
+                        )) : null}
+                </div>
+                <RoundButton>More</RoundButton>
+            </div>
+        </div>
+    );
+};
+
 const Home = ({news, library, events, members}) => {
-    const [open, setOpen] = useState(false);
-    const [scroll, setScroll] = useState(0);
 
     // Hero animation
     const logoRef = useRef();
@@ -78,18 +125,6 @@ const Home = ({news, library, events, members}) => {
 
     useChain([logoRef, messageRef, offlabelRef], [0, 0.4, 1.2]);
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-    }, []);
-
-    const handleScroll = (e) => {
-        const scrollTop = Math.max(
-            window.pageYOffset,
-            document.documentElement.scrollTop,
-            document.body.scrollTop);
-        // setScroll(scrollTop);
-    };
-
     return (
         <LayoutNormal title="Home">
             <section className={styles.hero}>
@@ -113,9 +148,12 @@ const Home = ({news, library, events, members}) => {
                 <animated.div style={offlabelSpring}><img src="/images/hero/offlabel.svg" className={styles.hero_offlabel} /></animated.div>
             </section>
 
+            
             <section className={styles.oshare}>
                 <div className="mw">
+                <InViewFade>
                     <img className={styles.oshare_logo} src="/images/oshareLogo.png" />
+                    
                     <h3 className={styles.oshare_exp}>
                         新しい知識や考え方に触れたときの<span>ワクワクをプロデュース。</span><br />
                         学問や研究を日常と繋げ、<span>シェアするプラットフォーム。</span>
@@ -126,6 +164,8 @@ const Home = ({news, library, events, members}) => {
                         しかしながら、学問や研究を通じて、人々が日常で抱えている問題や悩みを解決したり、
                         完全に解決することは難しくても状況を少しでも良くすることが出来ると私たちは考えています。
                     </p>
+                </InViewFade>
+                <InViewFade>
                     <h4 className={styles.oshare_cont}>▼ CONTENTS</h4>
                     <div className={styles.oshare_links}>
                         <Link href="/library"><div className={`${styles.oshare_link} ${styles.oshare_link_library}`}>
@@ -141,7 +181,8 @@ const Home = ({news, library, events, members}) => {
                             </div>
                         </div></Link>
                     </div>
-                    <p className={`${styles.oshare_abstract} ${styles.oshare_abstract_2}`}>
+                </InViewFade>
+                    {/* <p className={`${styles.oshare_abstract} ${styles.oshare_abstract_2}`}>
                         O!SHARE Academyでは、1人では考えきれない問題や課題を探求するためのツールや情報を提供し、
                         研究とつなげることによって、何となく疑問に思っていることをより深めるための交流の場を作っていきます。
                         例えば普段とは少し異なる切り口を通じて共有し、新たな思考を生み出して行動のきっかけになるような情報をシェアしていきます。
@@ -161,59 +202,55 @@ const Home = ({news, library, events, members}) => {
                         {library.items.length > 0
                         ? library.items.map(lib =>
                             <LibraryItem fields={lib.fields} key={lib.sys.id} id={lib.sys.id} />) : null}
-                    </div>
+                    </div> */}
                 </div>
-
+                
                 <div className={styles.oshare_path}>
-                    <p className={styles.oshare_path_txt}>Produce by OFF LABEL</p>
+                <InViewFade>
+                    <p className={styles.oshare_path_txt}>OFF LABELとは？</p>
                     <p className={styles.oshare_path_line}></p>
+                </InViewFade>
                 </div>
             </section>
 
             <section className={styles.about}>
                 <div className="mw">
-                <img className={styles.about_logo} src="/images/logo.svg" />
-                    <Catch>「学問・研究」をよりカジュアルに、<br />日常をよりよく生きるための糧に。</Catch>
-                    <p className={styles.about_exp}>
+                <InViewFade>
+                    <img className={styles.about_logo} src="/images/logo.svg" />
+                    <div className={styles.about_catch}><Catch>「学問・研究」をよりカジュアルに、<br />日常をよりよく生きるための糧に。</Catch></div>
+                </InViewFade>
+                    <InViewFade><p className={styles.about_exp}>
                         私たちは、アカデミックと現実世界が乖離してしまっている今、<br />
                         カジュアルな形で「学問」の楽しさを広め、<br />
                         研究を社会に発信していきたいと考えています。<br />
                         また伝えるだけではなく、学問や研究を通じて、<br />
-                        共に考える場を形成していきたいと思っています。<br /><br />
-                        そうすることで現状社会を取り巻く課題、<br />研究者を取り巻く問題を解決するきっかけになると私たちは考えています。<br /><br />
+                        共に考える場を形成していきたいと思っています。
+                    </p></InViewFade>
+                    <InViewFade><p className={styles.about_exp}>
+                        そうすることで現状社会を取り巻く課題、<br />研究者を取り巻く問題を解決するきっかけになると私たちは考えています。
+                    </p></InViewFade>
+                    <InViewFade><p className={styles.about_exp}>
                         OFF LABELという団体名には学問や研究の力を通じて、<br />
                         人々や組織、国や地域に貼られた、<br />様々な負の「ラベル」を取り払っていくという想いが込められています。
-                    </p>
-                    <Link href="/about"><a><button className={styles.about_btn}>More about OFFLABEL</button></a></Link>
+                    </p></InViewFade>
+                    <InViewFade>
+                        <Link href="/about"><a><button className={styles.about_btn}>More about OFFLABEL</button></a></Link>
+                    </InViewFade>
                 </div>
             </section>
 
-            <section className={styles.news}>
-                <div className="mw">
-                    <PageTitle>News</PageTitle>
-                    <p className={styles.news_exp}>
-                        OFF LABELの活動に関連する<span>最新情報をお届けします。</span>
-                    </p>
-                    <div className={styles.news_cont}>
-                        {news.items.length > 0
-                            ? news.items.map(item => (
-                                <NewsItem key={item.sys.id} fields={item.fields} id={item.sys.id} />
-                            )) : null}
-                    </div>
-                    <RoundButton>More</RoundButton>
-                </div>
-            </section>
+            <SectionNews news={news} />
 
             <section className={styles.events}>
                 <div className="mw">
-                    <PageTitle>Event</PageTitle>
-                    <p className={styles.events_exp}>
+                    <InViewRotate><PageTitle>Event</PageTitle></InViewRotate>
+                    <InViewFade><p className={styles.events_exp}>
                         OFF LABEL主催・共催のイベントをお届けします。
-                    </p>
+                    </p></InViewFade>
                     <div className={styles.events_cont}>
                         {events.items.length > 0
                             ? events.items.map(event => (
-                            <EventItem fields={event.fields} key={event.sys.id} />
+                            <InViewFade><EventItem fields={event.fields} key={event.sys.id} /></InViewFade>
                         )) : null}
                     </div>
                     {/* <RoundButton>More</RoundButton> */}

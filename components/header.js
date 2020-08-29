@@ -32,7 +32,7 @@ const MenuGroup = ({parent, list}) => {
         <div className={styles.parentMenu} onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)}>
             <p>{parent}</p>
             <div className={`${styles.subMenu} ${hover ? styles.subMenu_active : null}`}>
-                {list.map(m => <Link href={`/${m.link}`}><a>{m.name}</a></Link>)}
+                {list.map(m => <Link href={`/${m.link}`} key={m.link}><a>{m.name}</a></Link>)}
             </div>
         </div>
     );
@@ -90,7 +90,7 @@ const Header = ({title}) => {
                 <div className={styles.header_menu}>
                     {menuItems.map(menu => (
                         Array.isArray(menu.sub) ?
-                        <MenuGroup parent={menu.name} list={menu.sub} />
+                        <MenuGroup parent={menu.name} list={menu.sub} key={menu.link} />
                         : <Link href={`/${menu.link}`} key={menu.link}><a>{menu.name}</a></Link>
                     ))}
                     <a href="https://www.facebook.com/OFFLABELJP/" target="_blank"><FacebookIcon fontSize="large"></FacebookIcon></a>

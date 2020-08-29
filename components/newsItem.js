@@ -3,10 +3,11 @@ import styles from './styles/newsItem.module.scss';
 import Link from 'next/link';
 
 import {timeToDate} from '../lib/stringFunctions';
+import { animated } from 'react-spring';
 
-const NewsItem = ({fields, id}) => {
+const NewsItem = ({fields, id, animProps}) => {
     return (
-        <div className={styles.post}>
+        <animated.div className={styles.post} style={{...animProps}}>
             <Link href={`/news/${id}`}><a>
                 <div className={styles.thumb}><img src={fields.thumbnail.fields.file.url} className={styles.thumb_img} /></div>
                 <div className={styles.body}>
@@ -15,7 +16,7 @@ const NewsItem = ({fields, id}) => {
                     <p className={styles.date}>{timeToDate(fields.date)}</p> 
                 </div>
             </a></Link>
-        </div>
+        </animated.div>
     );
 };
 
