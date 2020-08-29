@@ -1,5 +1,5 @@
 // react
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 
 // next components
 
@@ -11,6 +11,10 @@ import {RoundButton} from '../../components/buttons';
 
 // styles
 import styles from '../../styles/ronbun.module.scss';
+
+// animation
+import {useSpring, animated, config, useChain, useTransition} from 'react-spring';
+import {useInView} from 'react-intersection-observer';
 
 
 // fetch data from contentful
@@ -28,10 +32,54 @@ export const getServerSideProps = async () => {
     }
 };
 
+const Modal = ({image, onClose}) => {
+
+    const backSpring = useSpring({
+        from: {opacity: 0},
+        to: {opacity: 1}
+    });
+
+    const imageSpring = useSpring({
+        from: {opacity: 0, transform: 'scale(0.5)'},
+        to: {opacity: 1, transform: 'scale(1)'},
+        config: config.stiff
+    });
+
+    return (
+        <animated.div style={backSpring} className={styles.modal}>
+            <animated.img style={imageSpring} src={image} />
+            <div className={styles.modal_close}>
+                <span onClick={onClose}><RoundButton>閉じる</RoundButton></span>
+            </div>
+        </animated.div>
+    );
+};
+
 const Ronbun = ({ronbun}) => {
-    useEffect(() => {
-        console.log(ronbun.items);
-    }, [])
+    const [modal, setModal] = useState(false);
+    const [modalImage, setModalImage] = useState('');
+
+    const [ref, inView] = useInView({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+
+    const itemSpring = useTransition(inView ? ronbun.items : [], item => item.sys.id, {
+        unique: true,
+        trail: 1000 / ronbun.items.length,
+        from: {opacity: 0, transform: 'scale(0)'},
+        enter: {opacity: 1, transform: 'scale(1)'},
+    });
+
+    const handleOnModal = (e) => {
+        setModal(true);
+        setModalImage(e.target.getAttribute('src'));
+    };
+
+    const handleCloseModal = (e) => {
+        setModal(false);
+    };
+
     return (
         <LayoutNormal title="100人論文">
             <AcademyHero image={"/images/ronbunBack2.jpg"} />
@@ -44,16 +92,25 @@ const Ronbun = ({ronbun}) => {
                     OFF LABEL独自のコンテンツとしては、研究者自身がアカデミアとしての道を選んだ経緯も紹介しています。 研究を身近に捉え、自らが「考えること」「研究」の担い手になるきっかけ作りなることを願っています。<br /><br />
                     こちらの企画は自身研究のアウトリーチを行いたいと考えいている方は誰でも参加が可能なため、参加希望の場合は以下のリンクにて質問に回答の上、ご参加いただけます。
                 </p>
-                <a target="_blank" href="https://forms.gle/XpvAvi8EDg6UJmhB8"><RoundButton>100人論文に参加する</RoundButton></a>
+                <div className={styles.join}>
+                    <a target="_blank" href="https://forms.gle/XpvAvi8EDg6UJmhB8"><RoundButton>100人論文に参加する</RoundButton></a>
+                </div>
             </section>
 
-            <section className={styles.cont}>
+            <section className={styles.cont} ref={ref}>
                 {ronbun.items.length > 0 ?
-                    ronbun.items.map(item =>
-                    <img src={item.fields.ronbun.fields.file.url} key={item.sys.id} className={styles.cont_img}/>
-                ) : null}
+                    itemSpring.map(({item, key, props}) => (
+                        <animated.img 
+                            src={item.fields.ronbun.fields.file.url} 
+                            key={key} 
+                            style={{...props}} 
+                            className={styles.cont_img} 
+                            onClick={(e) => handleOnModal(e)}
+                        />
+                )) : null}
             </section>
-
+            
+            {modal ? <Modal image={modalImage} onClose={handleCloseModal} /> : null}
         </LayoutNormal>
     )
 };

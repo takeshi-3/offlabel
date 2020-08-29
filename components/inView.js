@@ -8,7 +8,7 @@ export const InViewFade = ({children}) => {
     });
 
     const props = useSpring({
-        to: {opacity: inView ? 1 : 0, transform: inView ? 'translateY(0px)' : 'translateY(50px)'},
+        to: {opacity: inView ? 1 : 0, transform: inView ? 'translateY(0px)' : 'translateY(30px)'},
         config: config.slow
     });
 

@@ -234,7 +234,7 @@ const Home = ({news, library, events, members}) => {
                         人々や組織、国や地域に貼られた、<br />様々な負の「ラベル」を取り払っていくという想いが込められています。
                     </p></InViewFade>
                     <InViewFade>
-                        <Link href="/about"><a><button className={styles.about_btn}>More about OFFLABEL</button></a></Link>
+                        <Link href="/about"><a><button className={styles.about_btn}>About OFF LABEL</button></a></Link>
                     </InViewFade>
                 </div>
             </section>
@@ -259,11 +259,13 @@ const Home = ({news, library, events, members}) => {
 
             <section className={styles.members}>
                 <div className="mw">
-                    <PageTitle>Member</PageTitle>
+                    <InViewRotate><PageTitle>Member</PageTitle></InViewRotate>
+                    <InViewFade>
                     <p className={styles.members_exp}>
                         OFF LABELの研究色豊かなメンバーを紹介します。
                     </p>
                     <h1 className={styles.events_coming}>Coming Soon!</h1>
+                    </InViewFade>
                     {/* <div className={styles.members_cont}>
                         {members.items.length > 0 
                             ? members.items.map(member => (
@@ -276,10 +278,12 @@ const Home = ({news, library, events, members}) => {
 
             <section className={styles.reach}>
                 <div className="mw">
+                <InViewFade>
                     <Banner 
                         title="Reach Us"
                         exp="OFF LABELへの質問、メールはこちらから"
                     />
+                </InViewFade>
                 </div>
             </section>
         </LayoutNormal>
